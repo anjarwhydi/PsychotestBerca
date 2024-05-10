@@ -1,0 +1,216 @@
+﻿@{
+    ViewData["Title"] = "Instruksi Subtes 10";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+        .but-start-ist {
+            width: 100%;
+        }
+
+            .but-start-ist button {
+                padding: 5px 50px;
+                text-align: center;
+                border-radius: 30px;
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+        .row input[type="radio"] {
+            width: 15px;
+            height: 15px;
+        }
+
+        .form-check-input {
+            cursor: pointer;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+        }
+
+    </style>
+}
+
+        <!-- Instruksi Subtes 9b IST -->
+        <div id="instruksi-subtes9" class="instruksi">
+            <div class="card" style="margin-bottom: 0">
+                <div class="card-header bg-dark">
+                    <h5 class="card-title" id="cardTitle">
+                        SUBTES 9
+                    </h5>
+                </div>
+        <div class="card-body card-instruksi text-justify">
+                    <!-- Display instructions and examples here -->
+                    <h5><strong>Instruksi Pengerjaan:</strong></h5>
+                    <h6> Pada tes kali ini terdapat sejumlah pertanyaan mengenai kata-kata yang telah Anda hafalkan tadi.</h6>
+                    <h5><strong>Contoh Soal:</strong></h5>
+                    <div class="card">
+                        <div class="row" style="margin-left: 25px; margin-right: 25px; margin-top: 15px;">
+                            <div class="col-md-2 text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                                <div class="bg-primary p-2 rounded text-white">
+                                    <p class="card-text font-weight-bold">Contoh 1 </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-10 mt-1">
+                                <div class="row">
+                                    <div class="text-left" style="display: flex; flex-direction: column; justify-content: center; align-items: left; height: 100%; font-size: 16px;">
+                                        <strong>
+                                            Kata yang mempunyai huruf permulaan Q adalah suatu ....
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan1" id="bunga" value="bunga">
+                                        <label class="form-check-label" for="bunga">Bunga</label>
+                                    </div>
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan1" id="perkakas" value="perkakas">
+                                        <label class="form-check-label" for="perkakas">Perkakas</label>
+                                    </div>
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan1" id="burung" value="burung">
+                                        <label class="form-check-label" for="burung">Burung</label>
+                                    </div>
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan1" id="kesenian" value="kesenian">
+                                        <label class="form-check-label" for="kesenian">Kesenian</label>
+                                    </div>
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan1" id="binatang" value="binatang">
+                                        <label class="form-check-label" for="binatang">Binatang</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p id="warningMessage1" style="color: red;display:none">Pilih <strong>Kesenian</strong></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            <hr />
+
+
+                    <div class="card">
+                        <div class="row" style="margin-left: 25px; margin-right: 25px; margin-top: 15px; margin-bottom: 15px  ">
+                            <div class="col-md-2 text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                                <div class="bg-primary p-2 rounded text-white">
+                                    <!-- style="background-color: #5e6ee6;" -->
+                                    <p class="card-text font-weight-bold">Contoh 2 </p>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-10 mt-1">
+
+                                <div class="row">
+                                    <div class="text-left" style="display: flex; flex-direction: column; justify-content: center; align-items: left; height: 100%; font-size: 16px;">
+                                        <strong>
+                                            Kata yang mempunyai huruf permulaan Z adalah suatu ....
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan2" id="bung" value="bunga">
+                                        <label class="form-check-label" for="bung">Bunga</label>
+                                    </div>
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan2" id="perkaka" value="perkakas">
+                                        <label class="form-check-label" for="perkaka">Perkakas</label>
+                                    </div>
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan2" id="burun" value="burung">
+                                        <label class="form-check-label" for="burun">Burung</label>
+                                    </div>
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan2" id="kesenia" value="kesenian">
+                                        <label class="form-check-label" for="kesenia">Kesenian</label>
+                                    </div>
+                                    <div class="col form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="pilihan2" id="binatan" value="binatang">
+                                        <label class="form-check-label" for="binatan">Binatang</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <p id="warningMessage2" style="color: red;display:none">Pilih <strong>Binatang</strong></p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            <hr />
+
+                    <br />
+                    <div>
+                        <h5 style="text-align: center; color: #777;"><strong> Jika telah memahami cara menjawab, silahkan lanjut ke soal Subtes 9</strong> </h5>
+                    </div>
+                    <br />
+
+                    <div class="but-start-ist">
+                        <button id="startSubtest" class="btn btn-block btn-info btn-sm">Mulai Tes</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+@section script {
+    <script src="~/js/Participant/IST.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("input[name='pilihan1']").change(function () {
+                var num = $("input[name='pilihan1']:checked").val();
+                if (num.toLowerCase() === "kesenian") {
+                    $("#warningMessage1").hide();
+                } else {
+                    $("#warningMessage1").show();
+                }
+            });
+            $("input[name='pilihan2']").change(function () {
+                var num = $("input[name='pilihan2']:checked").val();
+
+                if (num.toLowerCase() === "binatang") {
+                    $("#warningMessage2").hide();
+                } else {
+                    $("#warningMessage2").show();
+                }
+            });
+
+
+            function checkValue(inputName, expectedValue) {
+                var inputValue = $("input[name='" + inputName + "']:checked").val() || "";
+                return inputValue.toLowerCase() === expectedValue;
+            }
+            $("#startSubtest").click(function () {
+                const isActiveSubtest = sessionStorage.getItem("indexSubtest");
+                var targetUrl = `/dotest/StartTest/ist/subtes${isActiveSubtest}`;
+
+                var inpVal1 = checkValue("pilihan1", "kesenian");
+                var inpVal2 = checkValue("pilihan2", "binatang");
+
+                if (!inpVal1 && !inpVal2) {
+                    $("#warningMessage1").show();
+                    $("#warningMessage2").show();
+                    return;
+                }
+                if (!inpVal1) {
+                    $("#warningMessage1").show();
+                    return;
+                }
+                if (!inpVal2) {
+                    $("#warningMessage2").show();
+                    return;
+                }
+
+                if (inpVal1 && inpVal2) {
+                    window.location.href = targetUrl;
+                    displaytest(testId, isActiveSubtest);
+                }
+            });
+        });
+    </script>
+}

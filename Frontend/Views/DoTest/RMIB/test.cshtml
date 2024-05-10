@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/DoTest/TestLayout/OneQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+     option:disabled{
+         background-color:grey;
+         color:white;
+     }
+    </style>
+}
+
+<div id="questionContainer">
+    <!-- Isi pertanyaan dan pilihan ganda akan diisi melalui JavaScript -->
+</div>
+
+@section script{
+    <!-- Script eksternal Test -->
+    <script src="~/js/Participant/DoTest.js"></script>
+    <script src="~/js/Participant/RMIB.js"></script>
+}

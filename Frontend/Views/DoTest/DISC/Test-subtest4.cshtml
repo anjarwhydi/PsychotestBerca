@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+        .card {
+            padding: 0 20px;
+        }
+
+        .namaSub {
+            margin: 0 -20px 0.5rem -20px;
+        }
+
+        #ujian-form {
+            max-height: 450px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        #subtes-container .card {
+            margin-bottom: 0.5rem;
+        }
+
+        .pilgan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Menyesuaikan lebar kolom */
+            grid-gap: 10px; /* Jarak antara radio button */
+            width: 100%;
+            height: 30px;
+        }
+
+        #subtes-container .row .pl-3 {
+            margin: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            max-height: fit-content;
+        }
+
+        #ujian-form .but-start-ist {
+            width: 100%;
+            text-align: right;
+            margin: 1rem 0;
+        }
+        .essay{
+            margin-top:revert;
+        }
+
+            #ujian-form .but-start-ist button {
+                width: 150px;
+                height: 40px;
+                display: block;
+                margin: 0 auto;
+                border-radius: 10px;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                background-color: #36b9cc;
+                color: #ffffff;
+                border: none;
+            }
+    </style>
+}
+<div class="shadow-sm border rounded  bg-dark p-3 row namaSub">
+    <h5 class="col-6 text-left">
+        <span id="numSubTest">
+            SubTes
+        </span>
+    </h5>
+    <h5 id="showTimeTest" class="col-6 text-right">
+        <i class="fas fa-stopwatch"></i>
+        <span id="timeTest">
+            00s
+        </span>
+    </h5>
+</div>
+<form id="ujian-form" action="" method="post">
+    <div id="subtes-container">
+        <!-- Isi pertanyaan dan pilihan ganda akan diisi melalui JavaScript -->
+    </div>
+
+    <div style="text-align:center">
+           <div class="but-start-ist">
+                <button id="nextButton" type="button" onclick="nextSubtes()" style="display: none; width: 100%" class="btn btn-block btn-info mb-2">Selanjutnya</button>
+           </div>
+        <button id="finishButton" type="submit" style="display: none; width: 100%" class="btn btn-block btn-info mb-2">Selesai</button>
+    </div>
+</form>
+
+@section script{
+    <!-- Script eksternal Test -->
+    <script src="~/js/Participant/DISC.js"></script>
+
+}

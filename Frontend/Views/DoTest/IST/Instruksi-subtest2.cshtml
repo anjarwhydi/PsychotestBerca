@@ -1,0 +1,228 @@
+﻿@{
+    ViewData["Title"] = "Instruksi Subtes 2";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+        /* CSS untuk radio button dan label */
+        .radio-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 16px;
+        }
+
+            .radio-container input[type="radio"] {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+
+            .radio-container label {
+                flex-grow: 1;
+                margin-right: 10px;
+                text-align: left;
+            }
+
+        /* CSS untuk pesan peringatan */
+        .warning-message {
+            color: red;
+            display: none;
+        }
+
+
+        .but-start-ist {
+            width: 100%;
+        }
+
+            .but-start-ist button {
+                padding: 5px 50px;
+                text-align: center;
+                border-radius: 30px;
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+        .row input[type="radio"] {
+            width: 15px;
+            height: 15px;
+        }
+
+        .form-check-input {
+            cursor: pointer;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+        }
+    </style>
+}
+<!-- Instruksi Subtes 2 IST -->
+<div id="instruksi-subtes3" class="instruksi">
+    <div class="card" style="margin-bottom: 0">
+        <div class="card-header bg-dark">
+            <h5 class="card-title" id="cardTitle">
+                SUBTES 2
+            </h5>
+        </div>
+        <div class="card-body card-instruksi text-justify">
+            <!-- Display instructions and examples here -->
+            <h5><strong>Instruksi Pengerjaan:</strong></h5>
+            <h6> Pada setiap soal, Anda akan disajikan 5 kata. Empat dari 5 kata tersebut memiliki suatu kesamaan. Carilah satu kata yang tidak memiliki kesamaan dengan keempat kata lainnya.</h6>
+            <h5><strong>Contoh Soal:</strong></h5>
+            <div class="card">
+                <div class="row align-items-center" style="margin-left: 25px; margin-right: 25px; margin-top: 15px; margin-bottom: 15px;">
+                    <div class="col-md-2 text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                        <div class="bg-primary p-2 rounded text-white">
+                            <p class="card-text font-weight-bold">Contoh 1 </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-10 mt-1">
+                        <div class="row">
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh1" id="meja" value="meja">
+                                <label class="form-check-label" for="meja">Meja</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh1" id="kursi" value="kursi">
+                                <label class="form-check-label" for="kursi">Kursi</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh1" id="burung" value="burung">
+                                <label class="form-check-label" for="burung">Burung</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh1" id="lemari" value="lemari">
+                                <label class="form-check-label" for="lemari">Lemari</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh1" id="tempat-tidur" value="tempat tidur">
+                                <label class="form-check-label" for="tempat-tidur">Tempat tidur</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p id="warningMessage1" style="color: red;display:none">Pilih <strong>Burung</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <p>
+                            Pada contoh soal di atas, keempat kata yaitu Meja, Kursi, Lemari, dan Tempat Tidur memiliki suatu kesamaan yaitu merupakan PERABOT RUMAH (meubel). Dengan demikian, jawaban yang benar adalah Burung, karena Burung bukan perabot rumah atau tidak memiliki kesamaan dengan keempat kata lainnya. Pilihlah BURUNG sebagai jawaban.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="card">
+                <div class="row align-items-center" style="margin-left: 25px; margin-right: 25px; margin-top: 15px; margin-bottom: 15px;">
+                <div class="col-md-2 text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                    <div class="bg-primary p-2 rounded text-white">
+                        <p class="card-text font-weight-bold">Contoh 2 </p>
+                    </div>
+                </div>
+
+                    <div class="col-md-10 mt-1">
+                        <div class="row">
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh2" id="duduk" value="duduk">
+                                <label class="form-check-label" for="duduk">Duduk</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh2" id="berbaring" value="berbaring">
+                                <label class="form-check-label" for="berbaring">Berbaring</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh2" id="berdiri" value="berdiri">
+                                <label class="form-check-label" for="berdiri">Berdiri</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh2" id="berjalan" value="berjalan">
+                                <label class="form-check-label" for="berjalan">Berjalan</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihancontoh2" id="berjongkok" value="berjongkok">
+                                <label class="form-check-label" for="berjongkok">Berjongkok</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p id="warningMessage2" style="color: red;display:none">Pilih <strong>Berjalan</strong></p>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <p>
+                            Pada contoh soal kedua di atas, kata Duduk, Berbaring, Berdiri, dan Berjongkok memiliki kesamaan yaitu keadaan tidak bergerak, sedangkan BERJALAN adalah keadaan bergerak. Untuk itu, pilihlah kata BERJALAN sebagai jawaban.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div>
+                <h5 style="text-align: center; color: #777;"><strong> Jika telah memahami cara menjawab, silahkan lanjut ke soal Subtes 2</strong> </h5>
+            </div>
+            <div class="but-start-ist">
+                <button id="startSubtest" class="btn btn-block btn-info btn-sm">Mulai Tes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section script {
+    <script src="~/js/Participant/IST.js"></script>
+
+    <script>
+        $(document).ready(function () {
+           
+            $("input[name='pilihancontoh1']").change(function () {
+                var num = $("input[name='pilihancontoh1']:checked").val();
+
+                if (num.toLowerCase() === "burung") {
+                    $("#warningMessage1").hide();
+                } else {
+                    $("#warningMessage1").show();
+                }
+            });
+            $("input[name='pilihancontoh2']").change(function () {
+                var num = $("input[name='pilihancontoh2']:checked").val();
+
+                if (num.toLowerCase() === "berjalan") {
+                    $("#warningMessage2").hide();
+                } else {
+                    $("#warningMessage2").show();
+                }
+            });
+
+
+            function checkValue(inputName, expectedValue) {
+                var inputValue = $("input[name='" + inputName + "']:checked").val() || "";
+                return inputValue.toLowerCase() === expectedValue;
+            }
+
+            $("#startSubtest").click(function () {
+                const isActiveSubtest = sessionStorage.getItem("indexSubtest");
+                var targetUrl = `/dotest/StartTest/ist/subtes${isActiveSubtest}`;
+                var inpVal1 = checkValue("pilihancontoh1", "burung");
+                var inpVal2 = checkValue("pilihancontoh2", "berjalan");
+
+                if (!inpVal1 && !inpVal2) {
+                    $("#warningMessage1").show();
+                    $("#warningMessage2").show();
+                    return;
+                }
+                if (!inpVal1) {
+                    $("#warningMessage1").show();
+                    return;
+                }
+                if (!inpVal2) {
+                    $("#warningMessage2").show();
+                    return;
+                }
+
+                if (inpVal1 && inpVal2) {
+                    window.location.href = targetUrl;
+                    displaytest(testId, isActiveSubtest);
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,304 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "login";
+    Layout = "~/Views/Login/Layout/LoginLayout.cshtml";
+}
+@{
+    var noAuthMessage = TempData["noAuth"];
+}
+@section style{
+    <style>
+        body {
+            width: 100%;
+        }
+
+        .container-login {
+            display: flex;
+            flex-direction: row;
+            justify-content: center; 
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .box-one {
+            background-color: #fffef6;
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-image: url("/svg/bg-login.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .box-one-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            padding: 70px;
+            text-align: center;
+        }
+
+        .text-hrd {
+            font-family: "Source Sans Pro";
+            font-weight: bold;
+            font-size: 1.3vw;
+            opacity: 0.8;
+        }
+
+        .logo-hrd {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .text-footer {
+            /*text-transform: uppercase;*/
+            font-size: 1vw;
+        }
+
+        .box-two {
+            background-color: #fafafa;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            
+        }
+
+        .FP{
+            color:black;
+        }
+
+        .cardlogin {
+            border: 1px inherit #fafafa;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .login-box {
+            width: 50%;
+        }
+
+            .login-box .card {
+                box-shadow: none !important;
+            }
+
+                .login-box .card:has(.card-header):has(.card-body),
+                #loading:has(i) {
+                    background-color: #f8f9fa;
+                }
+
+        /*  */
+        @@media (max-width: 600px) {
+            .container-login {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+            }
+
+            .box-one,
+            .box-two {
+                width: 100%;
+            }
+
+            .box-one {
+                height: 30%;
+            }
+
+            .box-two {
+                height: 70%;
+                background-color: #fafafa;
+            }
+
+            .text-hrd {
+                font-size: 2vw;
+            }
+
+            .logo-hrd {
+                width: 50%;
+            }
+
+            .login-box {
+                width: 70%;
+            }
+
+            
+        }
+
+        @@media (max-width: 400px) {
+            .text-hrd {
+                font-size: 3vw;
+            }
+
+            .logo-hrd {
+                width: 80%;
+            }
+
+            .box-one-container {
+                justify-content: initial;
+            }
+
+            #loginButton {
+                font-size: 0.75rem;
+            }
+        }
+
+        @@media (max-width: 320px) {
+            .text-hrd {
+                font-size: 3vw;
+            }
+
+            .logo {
+                padding: 40px;
+            }
+
+            .footer {
+                display: none;
+            }
+
+            .logo-hrd {
+                width: 80%;
+            }
+
+            .box-two {
+                align-items: initial;
+            }
+
+            .box-one-container {
+                justify-content: initial;
+            }
+
+            #loginButton {
+                font-size: 0.55rem;
+            }
+
+            .card-header a {
+                font-size: 1.2rem;
+            }
+
+            .card-body a {
+                font-size: 0.7rem;
+                
+            }
+
+            
+            
+
+        }
+    </style>
+}
+@model LoginViewModel
+
+<div class="container-login">
+    <div class="box-one">
+        <div class="box-one-container">
+            <div class="logo">
+                <p class="text-hrd">Psikotes Online</p>
+                <input type="hidden" data-aut="@noAuthMessage" id="authHidden" />
+                
+                <img class="logo-hrd" src="~/image/logoBHP_fix.png" alt='PT.Berca Hardayaperkasa'>
+            </div>
+            <div class="footer">
+                <strong class="text-footer">Copyright &copy; 2023 PT. Berca Hardayaperkasa</strong>
+            </div>
+        </div>
+
+    </div>
+    <div class="box-two">
+        <div class="login-box">
+            <!-- /.login-logo -->
+
+            <div class="card ">
+                @* <div class="card-header text-left">
+                    <p class="h3">Masuk</p>
+                </div> *@
+                <div class="card-body cardlogin shadow">
+                    <p class="h3"> Masuk</p>
+                    <hr>
+                    
+                    <form action="#" method="post" id="form-login">
+                       
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email" id="email" name="email" required>
+                            <div class="input-group-append">
+                                <div class=" input-group-text">
+                                    <span class="fa fa-fw f fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" toggle="#password" class="form-control " placeholder="Password" id="password" name="password" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" style="cursor:pointer"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-7">
+                                <a href="/Home/ForgotPassword" class="FP">Lupa kata sandi?</a>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-5">
+                                <button type="submit" id="loginButton" class="btn btn-dark btn-block">Masuk</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+                    <form id="myform" action="rec/recieveData" method="post">
+
+                          <input type="hidden" id="roleForAuth" name="role" />
+                    </form>
+
+                    <!-- /.social-auth-links -->
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+
+    <!-- Loading animasi -->
+    <div id="loading" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999; display: none; position: fixed; top: 0; left: 0;">
+        <div id="loading-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw" style="color: white;"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section script{
+    
+
+    <script src="~/js/login.js"></script>
+    <script src="~/js/Admin/ActivityHistoryLog.js"></script>
+    <script src="/AdminLTE-3.2.0/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+}

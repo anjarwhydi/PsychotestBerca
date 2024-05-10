@@ -1,0 +1,188 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Participant/ParticipantLayout/ParticipantLayout.cshtml";
+}
+
+@section style{
+    <style>
+        /* Gaya tombol nomor soal */
+        .question-button {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #ccc;
+            background-color: #ccc; /* Warna abu-abu */
+            color: #fff; /* Warna teks putih */
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Gaya tombol nomor soal yang sudah dijawab */
+        .answered-button {
+            background-color: #4CAF50; /* Warna hijau */
+        }
+
+        /* Gaya tombol nomor soal yang belum dijawab */
+        .unanswered-button {
+            background-color: #FF0000; /* Warna merah */
+        }
+
+        /* Definisikan kelas-kelas CSS */
+        .show {
+            display: block !important;
+        }
+
+        .hide {
+            display: none !important;
+        }
+
+        /* CSS untuk bilah kemajuan atau status */
+        #progress-container {
+            width: 100%;
+            background-color: #f0f0f0;
+            margin-top: 20px;
+            overflow: hidden;
+            height: 40px; /* Tambahkan tinggi untuk icon Font Awesome */
+        }
+
+        .step {
+            width: calc(100% / 9); /* Sesuaikan dengan jumlah subtes Anda */
+            float: left;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            cursor: pointer;
+            background-color: #f0f0f0; /* Warna default */
+            color: #000; /* Warna teks default */
+            position: relative;
+        }
+
+            .step i {
+                margin-right: 5px;
+            }
+
+            .step.active {
+                background-color: #4caf50; /* Warna aktif */
+                color: #fff; /* Warna teks saat aktif */
+            }
+
+            /* CSS untuk icon Font Awesome */
+            .step i.fa-check {
+                color: green;
+            }
+
+            .step i.fa-times {
+                color: red;
+            }
+
+        /* CSS untuk progress bar */
+        #progress-bar {
+            background-color: #4caf50; /* Warna garis progress aktif */
+            height: 4px; /* Ketebalan garis progress */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease; /* Animasi perubahan lebar */
+        }
+    </style>
+    @RenderSection("style", required: false)
+    }
+    
+<div class="content-wrapper bg-white mx-auto" style="user-select: none;">
+    <div class="shadow-sm border rounded text-right bg-dark my-3 p-3">
+        <div id="facecapture" class="py-3" style="display:none;">
+
+                    <video id="videoElement" width="320" height="240" autoplay hidden></video>
+                    <canvas id="canvasElement" width="320" height="240" hidden></canvas>
+
+                </div>
+        <h3 id="showTimeTest">
+            <i class="fas fa-stopwatch"></i>
+            <span id="timeTest">
+                --h:--m:--s
+            </span>
+        </h3>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-primary">
+            <h3 class="card-title" id="cardTitle">
+                Contoh Soal.
+            </h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+
+            <div id="mainContent">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- /.card-footer -->
+        <div class="card-footer bg-white">
+            <div class="row justify-content-between">
+                <div class="col-6-sm text-left" id="btnBackTest" style="display: none">
+                    <button type="button" class="btn bg-primary">
+
+                        @* <i class="fas fa-arrow-left"></i> *@
+                        Sebelumnya
+                    </button>
+                </div>
+                <div class="col-6-sm text-center mx-auto">
+                    <button type="button" class="btn bg-primary px-5" id="startDoTest" style="border-radius: 20px">
+                        Mulai
+                    </button>
+                </div>
+                <div class="col-6-sm text-center" id="detail" style="display: none">
+                    <button type="button" class="btn bg-warning px-5" id="btnDetail">
+
+                        @* <i class="fas fa-arrow-right"></i> *@
+                        Detail
+                    </button>
+                </div>
+                <div class="col-6-sm text-right" id="btnNextTest" style="display: none">
+                    <button type="button" class="btn bg-primary" id="btnNext">
+
+                        @* <i class="fas fa-arrow-right"></i> *@
+                        Selanjutnya
+                    </button>
+                </div>
+                <div class="col-6-sm text-right" id="btnFinishTest" style="display: none">
+                    <button type="button" class="btn bg-success" id="btnFinish">
+                        Selesai
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        <!-- /.card-footer -->
+    </div>
+
+    <div class="question-list text-center p-2">
+        <!-- Tombol nomor soal akan ditambahkan di sini -->
+    </div>
+
+    <!-- Loading animasi -->
+        <div id="loading" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999; display: none; position: fixed; top: 0; left: 0;">
+            <div id="loading-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw" style="color: white;"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+</div>
+
+@section script{
+    <script>
+        $("#logoutClick").css({
+            'pointer-events': 'none',
+            'cursor': 'default'
+        });
+        $("#homee").css({
+            'pointer-events': 'none',
+            'cursor': 'default'
+        });
+    </script>
+    @RenderSection("script", required: false)
+}

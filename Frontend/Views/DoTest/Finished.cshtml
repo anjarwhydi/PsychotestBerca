@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Finished The Test";
+    Layout = "~/Views/Participant/ParticipantLayout/ParticipantLayout.cshtml";
+}
+
+<div class="content-wrapper bg-white mx-auto px-5">
+    <div class="shadow-sm border rounded text-center bg-info bg-gradient my-5 p-3">
+        <h3>
+            Selamat Anda Telah Menyelesaikan Tes Psikotes !
+        </h3>
+    </div>
+
+    <div id="redirectTest" class="d-none"> 
+        <div class="card-header text-left" style="background-color:#f8f9fa;">
+            <a href="#" class="h3" id="red"><b>Redirect In <span id="countdown">5</span></b></a>
+        </div>
+        <div class="card-body" style="background-color:#f8f9fa;">
+            <div>
+                Prepared Yourself Before Start The Next Test.<br /><br /><br /> Don't Close, This Page Will Automatically Redirect
+            </div>
+        </div>
+    </div>
+   
+</div>
+
+
+
+@section script{
+    <script src="~/js/Participant/Finished.js"></script>
+}

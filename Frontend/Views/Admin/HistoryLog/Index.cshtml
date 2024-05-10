@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLTELayout/AdminLTELayout.cshtml";
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-3">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <!-- Tabel -->
+                        <table id="TblHistoryLog" class="table table-bordered table-striped display nowrap" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name User</th>
+                                        <th>Role</th>
+                                        <th>Activity</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        <!-- Tabel -->
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+@section script{
+    <script src="~/js/Admin/HistoryLogJS.js"></script>
+}
+

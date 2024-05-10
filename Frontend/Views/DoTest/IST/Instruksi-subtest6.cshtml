@@ -1,0 +1,260 @@
+﻿@{
+    ViewData["Title"] = "Instruksi Subtes 6";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+        #instruksi-subtes6 .card {
+            margin-bottom: 0;
+        }
+
+            #instruksi-subtes6 .card .row {
+                margin-left: 25px;
+                margin-right: 25px;
+                margin-top: 15px;
+            }
+
+                #instruksi-subtes6 .card .row .text-center {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+
+                #instruksi-subtes6 .card .row .text-left {
+                    justify-content: space-around;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    height: 100%;
+                    font-size: 16px;
+                }
+
+                    #instruksi-subtes6 .card .row .text-left label {
+                        margin-right: 10px;
+                        text-align: center;
+                        flex-grow: 1;
+                    }
+
+        #instruksi-subtes6 .akhir {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #777;
+        }
+
+        .form-control {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .contoh-error,
+        .contoh-error:focus {
+            border: 1px solid red; /* Menambahkan border merah */
+        }
+
+        .contoh-error {
+            height: 70%;
+        }
+
+        .noted {
+            margin-top: 10px;
+        }
+
+        #warningMessage,
+        #warningMessage2 {
+            display: none;
+            margin-bottom: 0;
+        }
+
+        .but-start-ist {
+            width: 100%;
+        }
+
+            .but-start-ist button {
+                padding: 5px 50px;
+                text-align: center;
+                border-radius: 30px;
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+    </style>
+}
+
+    <!-- Instruksi Subtes 2 IST -->
+    <div id="instruksi-subtes6" class="instruksi">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h5 class="card-title" id="cardTitle">
+                    SUBTES 6
+                </h5>
+            </div>
+        <div class="card-body card-instruksi text-justify">
+                <!-- Display instructions and examples here -->
+                <h5><strong>Instruksi Pengerjaan:</strong></h5>
+                <h6>
+                    Pada persoalan berikut, Anda akan disajikan dengan deret angka. Setiap deret tersusun menurut suatu pola tertentu. Angka terakhir dari deret tersebut masih kosong.
+                    Anda diminta untuk mengisi angka yang kosong dari deret tersebut dengan cara memilih angka yang merupakan pilihan jawaban Anda.
+                </h6>
+
+                <h6> Catatan : </h6>
+                <ul class="bullet-list">
+                    <li> DILARANG untuk menggunakan alat bantu menghitung seperti kalkulator dan sejenisnya! </li>
+                    <li> SEDIAKANLAH kertas untuk Anda corat-coret ataupun menghitung, atau silahkan minta pada pengawas ujian jika ada </li>
+                    <li> INGAT setiap aktifitas Anda kami record </li>
+                </ul>
+                <h5><strong>Contoh Soal:</strong></h5>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-2 text-center">
+                            <div class="bg-primary p-1 rounded text-white">
+                                <!-- style="background-color: #5e6ee6;" -->
+                                <p class="card-text font-weight-bold">Contoh 1 </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            <div class="text-left">
+                                <p>2</p>
+                                <p>4</p>
+                                <p>6</p>
+                                <p>8</p>
+                                <p>10</p>
+                                <p>12</p>
+                                <p>14</p>
+                                <p class="text-bold">?</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <input type="text" id="contoh1" class="form-control"
+                               placeholder="Masukkan Jawaban Anda" autocomplete="off" oninput="validateInput('contoh1')">
+                            <p id="warningMessage" style="color: red;">tulis angka 16 pada isian</p>
+                        </div>
+
+                        <div class="col-md">
+                            <p class="noted">
+                                Pada deret angka di atas, selalu didapat jika angka di depannya ditambah dengan 2. Maka jawabannya adalah 16. Untuk itu, isi jawaban angka <b>16</b> pada kotak jawaban yang telah disediakan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <hr />
+
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-2 text-center">
+                            <div class="bg-primary p-1 rounded text-white">
+                                <!-- style="background-color: #5e6ee6;" -->
+                                <p class="card-text font-weight-bold">Contoh 2 </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            <div class="text-left">
+                                <p>9</p>
+                                <p>7</p>
+                                <p>10</p>
+                                <p>8</p>
+                                <p>11</p>
+                                <p>9</p>
+                                <p>12</p>
+                                <p class="text-bold">?</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <input type="text" id="contoh2" class="form-control"
+                               placeholder="Masukkan Jawaban Anda" autocomplete="off" oninput="validateInput('contoh2')">
+                            <p id="warningMessage2" style="color: red;">tulis angka 10 pada isian</p>
+                        </div>
+                        <div class="col-md">
+                            <p class="noted">
+                                Pada deret di contoh 2, selalu berganti-ganti harus dikurangi dengan 2 dan setelah itu ditambah dengan 3. Sehingga jawaban pada contoh 2 adalah 10. Untuk itu, isi jawaban angka <b>10</b> pada kotak jawaban yang telah disediakan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <hr />
+
+
+
+            <br />
+            <div>
+                <h5 style="text-align: center; color: #777;"><strong> Jika telah memahami cara menjawab, silahkan lanjut ke soal Subtes 6</strong> </h5>
+            </div>
+            <br />
+            <div class="but-start-ist">
+                <button id="startSubtest" class="btn btn-block btn-info btn-sm">Mulai Tes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+@section script {
+    <script src="~/js/Participant/IST.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("input[id='contoh1']").change(function () {
+                var inpVal = $("#contoh1").val();
+                if (parseInt(inpVal) === 16) {
+                    $("#contoh1").removeClass("contoh-error");
+                    $("#warningMessage").hide();
+                } else {
+                    $("#contoh1").addClass("contoh-error");
+                    $("#warningMessage").show();
+                }
+            });
+
+            $("input[id='contoh2']").change(function () {
+                var inpVal = $("#contoh2").val();
+                if (parseInt(inpVal) === 10) {
+                    $("#contoh2").removeClass("contoh-error");
+                    $("#warningMessage2").hide();
+                } else {
+                    $("#contoh2").addClass("contoh-error");
+                    $("#warningMessage2").show();
+                }
+            });
+
+            $("#startSubtest").click(function () {
+                const isActiveSubtest = sessionStorage.getItem("indexSubtest");
+                var targetUrl = `/dotest/StartTest/ist/subtes${isActiveSubtest}`;
+
+                var inpVal1 = parseInt($("#contoh1").val()) === 16;
+                var inpVal2 = parseInt($("#contoh2").val()) === 10;
+
+                if (!inpVal1 && !inpVal2) {
+                    $("#contoh1").addClass("contoh-error");
+                    $("#warningMessage").show();
+                    $("#contoh2").addClass("contoh-error");
+                    $("#warningMessage2").show();
+                    return;
+                } else if (!inpVal1) {
+                    $("#contoh1").addClass("contoh-error");
+                    $("#warningMessage").show();
+                    return;
+                } else if (!inpVal2) {
+                    $("#contoh2").addClass("contoh-error");
+                    $("#warningMessage2").show();
+                    return;
+                }
+                window.location.href = targetUrl;
+                displaytest(testId, isActiveSubtest);
+            });
+        });
+
+        function validateInput(id) {
+            var inputField = document.getElementById(id);
+            var inputValue = inputField.value;
+            var onlyLetters = /^[0-9]+$/;
+
+            if (!onlyLetters.test(inputValue)) {
+                inputField.value = inputValue.replace(/[^0-9]/g, '');
+            }
+        }
+    </script>
+}

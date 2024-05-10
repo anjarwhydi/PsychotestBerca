@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style {
+    <style>
+        .form-check-input {
+            cursor: pointer;
+        }
+    </style>
+}
+@*<div style="padding:34px; width:100%; height:100%;">*@
+    @*<div class="row">*@
+        <div class="col-md-12" style=" padding:2.25rem; text-align:justify">
+            <!-- Instruksi DISC -->
+            <div id="instruksiDISC" style="padding:21px; width:100%; text-align: start;word-wrap: break-word;text-align:justify;color:#07094d">
+                <!-- Display instructions and examples here -->
+                <h4>Petunjuk Pengerjaan </h4>
+                <hr style="border-width: 2px;" />
+                <p>
+                    Baca dan dengarkan dengan seksama instruksi pengerjaan tes berikut:
+                </p>
+                <ul>
+                    <li>Tes ini terdiri dari 24 soal. Pada setiap soal disediakan 4 pilihan pernyataan. </li>
+                    <li>Tugas anda adalah memilih salah satu pernyataan yang saling sesuai atau paling menggambarkan diri anda, isi dilajur Most (M). </li>
+                    <li>Kemudian pilih satu pernyaatan lagi yang paling tidak sesuai atau paling tidak menggambarkan diri anda, isi di lajur Least (L).</li>
+                    <li>Kerjakan dengan cepat dan cermat.</li>
+                </ul>
+                <hr style="border-width: 2px;" />
+                <p><b>Contoh:</b></p>
+            @* <div class="card"> *@
+
+                <table class="table table-hover  text-center">
+                    <thead>
+                        <tr>
+                            <th style="background-color:#bbd0f3">Most (M)</th>
+                            <th style="background-color:#d9d7d7">Nomor (Contoh)</th>
+                            <th style="background-color:#bbd0f3">Least (L)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="form-check-input" type="radio" name="111" id="111" value="D" data-m="m"></td>
+                            <td> Baik hati</td>
+                            <td><input class="form-check-input" type="radio" name="222" id="222" value="D" data-m="l"></td>
+                        </tr>
+                        <tr>
+                            <td><input class="form-check-input" type="radio" name="111" id="111" value="I" data-m="m"></td>
+                            <td> Memiliki Keberanian</td>
+                            <td><input class="form-check-input" type="radio" name="222" id="222" value="I" data-m="l"></td>
+                        </tr>
+                        <tr>
+                            <td><input class="form-check-input" type="radio" name="111" id="111" value="S" data-m="m"></td>
+                            <td>Menyenangkan</td>
+                            <td><input class="form-check-input" type="radio" name="222" id="222" value="S" data-m="l"></td>
+                        </tr>
+                        <tr>
+                            <td><input class="form-check-input" type="radio" name="111" id="111" value="C" data-m="m"></td>
+                            <td>Periang</td>
+                            <td><input class="form-check-input" type="radio" name="222" id="222" value="C" data-m="l"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            @* </div> *@
+           
+
+                <hr style="border-width: 2px;" />
+                <div style="text-align:center">
+                    <div class="card-body">
+                        <button id="startTest" class="btn btn-info px-5 py-2" type="submit" style="border-radius:40px;color:#ffffff;font-weight:bold">Mulai Tes <i class="fas "></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    @*</div>*@
+@*</div>*@
+
+@section script {
+    <script>
+        $('input[type="radio"]').change(function () {
+            var val = $(this).val();
+            var mod = $(this).data('m');
+
+            var cheM = $('input[name="111"]:checked').val();
+            var cheL = $('input[name="222"]:checked').val();
+
+            if (mod === "m") {
+                if (cheL === val) {
+                    $('input[name="222"]').prop('checked', false);
+                }
+            } else if (mod === "l") {
+                if (cheM === val) {
+                    $('input[name="111"]').prop('checked', false);
+                }
+            }
+        });
+    </script>
+    <script src="~/js/Participant/DISC.js"></script>
+   
+}

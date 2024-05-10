@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/DoTest/TestLayout/OneQuestionLayout.cshtml";
+}
+
+                <!-- Instruksi MSDT -->
+<div class="text-justify" id="instruksiMSDT">
+                    <!-- Display instructions and examples here -->
+                    <h4>Tatacara Pengerjaan MSDT : </h4>
+                    <p>
+                        Pada halaman-halaman berikut, Anda akan membaca sejumlah pernyataan mengenai tindakan yang mungkin Anda lakukan dalam tugas Anda di perusahaan.
+                        Anda diminta untuk memilih salah satu pernyataan yang paling sesuai dengan diri Anda, atau paling mungkin Anda lakukan
+                    </p>
+                    <h4>Contoh Soal</h4>
+                    <form>
+        <div class="row boxed-check-group boxed-check-default">
+            <div class="col-12 col-sm-12 col-lg-12">
+                <label class="boxed-check">
+
+                    <input class="boxed-check-input" type="radio" id="optionA" name="answer" value="A">
+                    <div class="boxed-check-label">A. Saya datang ke kantor lebih awal bila sedang banyak pekerjaan.</div>
+
+                </label>
+            </div>
+        </div>
+        <div class="row boxed-check-group boxed-check-default">
+            <div class="col-12 col-sm-12 col-lg-12">
+                <label class="boxed-check">
+
+                    <input class="boxed-check-input" type="radio" id="optionB" name="answer" value="B">
+                    <div class="boxed-check-label">B. Saya bersedia bekerja lembur bila tugas saya belum selesai.</div>
+
+                </label>
+            </div>
+        </div>
+                    </form>
+                        <p id="warningMessage1" style="color: red;display:none">Pilih <strong>Salah Satu</strong></p>
+                    <p>
+                        Manakah dari dua pernyataan tersebut yang paling mungkin Anda lakukan?
+                        Jika Anda lebih memilih datang lebih awal daripada bekerja lembur maka pilihlah pernyataan <strong>A.</strong>
+                        Tetapi bila Anda lebih memilih bekerja lembur, maka pilihlah <strong>B</strong>
+                    </p>
+                    <p>
+                        Ini bukan suatu tes. Tidak ada jawaban “benar” atau “salah”. Apapun yang
+                        Anda pilih hendaknya sungguh-sungguh menggambarkan diri Anda dan pilihlah <u>hanya satu</u> pernyataan dari tiap pasang.
+                    </p>
+                </div>
+
+@section script{
+    <!-- Script eksternal Test -->
+    
+    <script src="~/js/Participant/DoTest.js"></script>
+    <script>
+        var currentTest;
+        if (currentTestId === "4") {
+            currentTest = "ist";
+        } else if (currentTestId === "5") {
+            currentTest = "disc";
+        } else if (currentTestId === "6") {
+            currentTest = "rmib";
+        } else if (currentTestId === "7") {
+            currentTest = "papikostick";
+        } else if (currentTestId === "11") {
+            currentTest = "msdt";
+        }
+        // Periksa apakah tes yang seharusnya diakses sesuai dengan tes pada URL
+        if (currentTestId !== "11") {
+            // Jika tidak sesuai, arahkan kembali ke halaman instruksi atau tampilkan pesan kesalahan
+            window.location.href = `/dotest/instruction/${currentTest}`;
+        }
+    </script>
+}

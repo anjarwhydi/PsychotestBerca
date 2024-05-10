@@ -1,0 +1,229 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "login";
+    Layout = "~/Views/Login/Layout/LoginLayout.cshtml";
+}
+@section style{
+    <style>
+    .container-login-test {
+            display:flex;
+            flex-direction:row; 
+            width:100%; 
+            height:100vh;
+    }
+
+        .container-login-test .left{
+                background-color: #fffef6; 
+                width: 40%; height: 100%; 
+                display: flex; 
+                flex-direction:column;
+                background-image:url('/svg/bg-login.svg');  
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+        }
+                .container-login-test .left-image{
+                    height:40%; padding: 70px
+            }
+            .left-image .left-text{
+            font-family: 'Source Sans Pro';
+            font-weight: bold;
+            font-size: 1.3vw;
+            opacity: 0.8;
+            text-align: center;
+            }
+            .left-image img{
+            height: auto;
+            width: 100%;
+            align-items: center
+            }
+            
+            .left .copyright-container{
+            height: 60%;
+            display: flex;
+            margin: auto auto 0 auto
+            }
+            .copyright-container .copyright-text{
+            text-align: center;
+            align-self: flex-end;
+            /* text-transform: uppercase; */
+            font-size: 1vw;
+            }
+            
+            .container-login-test .right{
+            background-color: #f8f9fa;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            }
+            .login-box{
+            width: 50% !important;
+            }
+            .right .card{
+            box-shadow: none !important;
+            }
+            .right .card-header{
+            background-color: #f8f9fa;
+            }
+
+        .right .text-redi{
+        }
+            
+        
+        
+        
+        
+        @@media (max-width: 600px) {
+            .container-login-test .left {
+            width:60%;
+            }
+
+            .container-login-test .left-image {
+                padding:50px;
+            }
+
+            .left-image .left-text {
+                font-size: 15px;
+            }
+
+            .copyright-container .copyright-text {
+                font-size:10px;
+            }
+
+            .right .text-redi {
+                font-size:1.2rem;
+            }
+            .card-body div{
+
+            }
+
+            .login-box {
+                width: 80% !important;
+            }
+
+            }
+            @@media (max-width: 400px) {
+            .container-login-test .right {
+                align-items: flex-start;
+            }
+            .container-login-test {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+
+                .container-login-test .left {
+                    width: 100%;
+                    height: 40%;
+                }
+
+            .left-image .left-text {
+                font-size: 10px;
+                margin-bottom:0;
+            }
+
+            .left-image img {
+                padding: 20px 50px;
+            }
+
+            .copyright-container .copyright-text {
+                font-size: 5px;
+            }
+
+            .container-login-test .right {
+                width: 100%;
+                height: 100%;
+            }
+
+            .right .text-redi {
+                font-size: 1rem;
+            }
+
+            .card-body{
+                font-size:10px;
+            }
+            }
+                @@media (max-width: 320px){
+            .container-login-test .right {
+                align-items: flex-start;
+            }
+
+            .login-box {
+                padding: 20px;
+            }
+                }
+    </style>
+}
+<div class="container-login-test">
+    <div class="left">
+        <div class="left-image">
+            <p class="left-text">Psikotes Online</p>
+            <img src="~/image/bhp.png" alt='PT.Berca Hardayaperkasa'>
+        </div>
+        <div class="copyright-container">
+            <strong class="copyright-text">Copyright &copy; 2023 PT. Berca Hardayaperkasa</strong>
+        </div>
+    </div>
+
+    <div class="right">
+
+        <div class="login-box" >
+            <!-- /.login-logo -->
+            <div class="card" >
+                <div class="card-header text-left" >
+                    <a href="#" class="h3 text-redi" id="red"><b>Redirect In <span id="countdown">5</span></b></a>
+                </div>
+                <div class="card-body" style="background-color:#f8f9fa;">
+                    <div>
+                        Prepared Yourself Before Start The Test.<br /><br /><br /> Don't Close, This Page Will Automatically Redirect
+                    </div>
+
+                    <form action="#" method="post" id="form-login" style="display:none">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Email" id="email" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" placeholder="Password" id="password" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" id="loginButton" class="btn btn-primary btn-block">Sign In</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+
+
+                    <!-- /.social-auth-links -->
+
+                    @*<p class="mb-1">
+                        If Don't Automatically Redirect, Click This <br />
+                        <a href="#">Redirect</a>
+                    </p>*@
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>
+@section script{
+    <script src="~/js/Participant/loginTest.js"></script>
+}

@@ -1,0 +1,219 @@
+﻿@{
+    ViewData["Title"] = "Instruksi Subtes 1";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+        .but-start-ist {
+            width: 100%;
+        }
+
+            .but-start-ist button {
+                padding: 5px 50px;
+                text-align: center;
+                border-radius: 30px;
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+        .row input[type="radio"] {
+            width: 15px;
+            height: 15px;
+        }
+        .card-body{
+            height:auto;
+            overflow:auto;
+        }
+
+        .form-check-input{
+            cursor: pointer;
+        }
+
+        .form-check-label{
+            cursor: pointer;
+        }
+        
+    </style>
+}
+<!-- Content -->
+@*<div class="content-wrapper" style="margin-left: 25px; margin-right: 25px; ">*@
+<!-- Instruksi Subtes 3 IST -->
+<div id="instruksi-subtes3" class="instruksi">
+    <div class="card" style="margin-bottom: 0">
+        <div class="card-header bg-dark">
+            <h5 class="card-title" id="cardTitle">
+                SUBTES 1
+            </h5>
+        </div>
+        <div class="card-body card-instruksi text-justify" style="padding:2.25rem;">
+            <!-- Display instructions and examples here -->
+            <h5><strong>Instruksi Pengerjaan:</strong></h5>
+            <h6> Pada persoalan berikut ini, anda akan disajikan kalimat di setiap soal. Pada kalimat tersebut, terdapat satu kata yang hilang. Akan disediakan 5 (lima) kata pilihan sebagai penggantinya. Pilihlah di antara 5 kata pilihan tersebut,  kata yang tepat untuk menyempurnakan kalimat tersebut.</h6>
+            <h5><strong>Contoh Soal:</strong></h5>
+            <div class="card">
+                <div class="row" style="margin-left: 25px; margin-right: 25px; margin-top: 15px; margin-bottom: 15px;">
+                    <div class="col-md-2 text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                        <div class="bg-primary p-2 rounded text-white">
+                            <p class="card-text font-weight-bold">Contoh 1 </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-10 mt-1">
+                        <div class="row">
+                            <div class="text-justify">
+                                <strong>
+                                    Seekor kuda mempunyai kesamaan terbanyak dengan seekor ....
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan1" id="kucing" value="kucing">
+                                <label class="form-check-label" for="kucing">Kucing</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan1" id="bajing" value="bajing">
+                                <label class="form-check-label" for="bajing">Bajing</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan1" id="keledai" value="keledai">
+                                <label class="form-check-label" for="keledai">Keledai</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan1" id="lembu" value="lembu">
+                                <label class="form-check-label" for="lembu">Lembu</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan1" id="anjing" value="anjing">
+                                <label class="form-check-label" for="anjing">Anjing</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <p id="warningMessage1" style="color: red;display:none">Pilih <strong>Keledai</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            <div class="card">
+                <div class="row" style="margin-left: 25px; margin-right: 25px; margin-top: 15px; margin-bottom: 15px  ">
+                    <div class="col-md-2 text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                        <div class="bg-primary p-2 rounded text-white">
+                            <!-- style="background-color: #5e6ee6;" -->
+                            <p class="card-text font-weight-bold">Contoh 2 </p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-10 mt-1">
+                        <div class="row">
+                            <div class="text-justify" style="display: flex; flex-direction: column; justify-content: center; align-items: left; height: 100%; font-size: 16px;">
+                                <strong>
+                                    Lawannya "Harapan" adalah ....
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan2" id="duka" value="duka">
+                                <label class="form-check-label" for="duka">Duka</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan2" id="putus-asa" value="Putus asa">
+                                <label class="form-check-label" for="putus-asa">Putus asa</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan2" id="sengsara" value="Sengsara">
+                                <label class="form-check-label" for="sengsara">Sengsara</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan2" id="cinta" value="Cinta">
+                                <label class="form-check-label" for="cinta">Cinta</label>
+                            </div>
+                            <div class="col form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="pilihan2" id="benci" value="Benci">
+                                <label class="form-check-label" for="benci">Benci</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p id="warningMessage2" style="color: red;display:none">Pilih <strong>Putus Asa</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+            <div>
+                <h5 style="text-align: center; color: #777;"><strong> Jika telah memahami cara menjawab, silahkan lanjut ke soal Subtes 1</strong> </h5>
+            </div>
+
+            <div class="but-start-ist">
+                <button id="startSubtest" class="btn btn-block btn-info btn-sm">Mulai Tes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@*</div>*@
+
+@section script {
+    <script src="~/js/Participant/IST.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("input[name='pilihan1']").change(function () {
+                var num = $("input[name='pilihan1']:checked").val();
+
+                if (num.toLowerCase() === "keledai") {
+                    $("#warningMessage1").hide();
+                } else {
+                    $("#warningMessage1").show();
+                }
+                return;
+            });
+            $("input[name='pilihan2']").change(function () {
+                var num = $("input[name='pilihan2']:checked").val();
+
+                if (num.toLowerCase() === "putus asa") {
+                    $("#warningMessage2").hide();
+                } else {
+                    $("#warningMessage2").show();
+                }
+                return;
+            });
+
+            function checkValue(inputName, expectedValue) {
+                var inputValue = $("input[name='" + inputName + "']:checked").val() || "";
+                return inputValue.toLowerCase() === expectedValue;
+            }
+            $("#startSubtest").click(function () {
+                const isActiveSubtest = sessionStorage.getItem("indexSubtest");
+                var targetUrl = `/dotest/StartTest/ist/subtes${isActiveSubtest}`;
+
+                var inpVal1 = checkValue("pilihan1", "keledai");
+                var inpVal2 = checkValue("pilihan2", "putus asa");
+
+                if (!inpVal1&& !inpVal2) {
+                    $("#warningMessage1").show();
+                    $("#warningMessage2").show();
+                    return;
+                }
+                if (!inpVal1) {
+                    $("#warningMessage1").show();
+                    return;
+                }
+                if (!inpVal2) {
+                    $("#warningMessage2").show();
+                    return;
+                }
+
+                if (inpVal1 && inpVal2) {
+                    window.location.href = targetUrl;
+                    displaytest(testId, isActiveSubtest);
+                }
+
+            });
+        });
+    </script>
+}

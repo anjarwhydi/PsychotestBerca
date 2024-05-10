@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Participant/ParticipantLayout/ParticipantLayout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Hide the default number input arrows */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<br />
+
+<div id="testContainer" style="text-align: center; pointer-events: none;">
+     
+</div>
+
+<br />
+
+<div class="content-wrapper pb-4" style="margin: 0">
+    <div class="card" style="margin-bottom: 0; margin:0 10%; text-align:justify;">
+        <div class="card-body">
+            <div id="facecapture" class="py-3" style="display:none;">
+                <!-- Konten untuk Pengambilan Gambar Wajah -->
+                <h5 style=" text-align: center;" class="text-center font-weight-bold mb-4">Pengambilan Gambar Wajah</h5>
+                <ul class="bullet-list">
+                    <li>
+                        Selama tes berlangsung, akan dilakukan pengambilan gambar wajah sebagai bukti pengerjaan tes. Pastikan Anda tidak menggunakan virtual kamera yang dapat menghambat proses online test.
+                    </li>
+                    <li>
+                        Pastikan wajah terlihat jelas.
+                    </li>
+                    <li>
+                        Pastikan anda memberikan akses "Allow" kamera
+                    </li>
+
+                </ul>
+                <video id="videoElement" width="320" height="240" autoplay hidden></video>
+                <canvas id="canvasElement" width="320" height="240" hidden></canvas>
+                <div class="pt-5">
+                    <button type="button" class="btn btn-primary float-right px-4" id="DoTest">
+                        <i class="nav-icon fas fa-edit"></i>
+                        Mulai Tes
+                    </button>
+                </div>
+            </div>
+
+            <div id="inputnik" class="py-3 col-md-8 offset-md-2" style="display:none;">
+                <!-- Konten untuk form  NIK -->
+                <h5 class="text-center font-weight-bold mb-4">Validasi Identitas Peserta</h5>
+                <p class="text-justify">
+                    Dear Candidates,
+                    Sebelum Anda dapat mengikuti psikotes ini, kami perlu melakukan validasi identitas Anda. Mohon melengkapi data berikut ini:
+                </p>
+
+                <form id="nikForm">
+                    <div class="form-group pb-4">
+                        <label for="InputNik" class="font-weight-normal" style="font-size: 14px;">NIK (Nomor Induk Kependudukan) / No. KTP * <span class="text-danger" style="font-size: 20px;">*</span></label>
+                        <input type="number" class="form-control" id="InputNik" required="" placeholder="Enter NIK Number" pattern="\d{1,16}">
+                    </div>
+                    <div class="pt-5">
+                        <button type="submit" class="btn btn-primary float-right px-5">Simpan</button>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- Loading animasi -->
+    <div id="loading" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999; display: none; position: fixed; top: 0; left: 0;">
+        <div id="loading-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+            <i class="fa fa-spinner fa-spin fa-3x fa-fw" style="color: white;"></i>
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+@section script{
+    <script src="~/js/Participant/StatusTest.js"></script>
+    <script src="~/js/Participant/page2.js"></script>
+    <script src="~/js/Participant/UpdateCreateDate.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#InputNik').on('input', function () {
+                var maxNikLength = 16; // Panjang maksimum NIK yang diizinkan
+
+                if ($(this).val().length > maxNikLength) {
+                    $(this).val($(this).val().slice(0, maxNikLength)); // Memotong input jika lebih panjang
+                }
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Masuk | Psikotes PT Berca Hardayaperkasa</title>
+
+        <!-- Google Font: Source Sans Pro -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+        <!-- icheck bootstrap -->
+        <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+
+        <link rel="stylesheet" href="~/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/toastr/toastr.min.css">
+        @RenderSection("style", required:false)
+
+    </head>
+    <body class="hold-transition login-page">
+        @RenderBody()
+        <!-- jQuery -->
+        <script src="~/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="~/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="~/AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
+        <script src="~/AdminLTE-3.2.0/plugins/toastr/toastr.min.js"></script>
+
+        <script src="~/AdminLTE-3.2.0/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+        <script src="~/js/TimeLimitSession.js"></script>
+        <script>
+            var ApiUrl = '@ViewBag.ApiUrl';
+
+            //check time limit session
+            checkTimeSession();
+            
+        </script>
+        @RenderSection("script", required:false)
+
+        <!-- Default Statcounter code for Psikotest Online Berca
+            https://psikotesonline.berca.co.id/ -->
+        <script type="text/javascript">
+            var sc_project = 12955551;
+            var sc_invisible = 1;
+            var sc_security = "9d2536fc";
+        </script>
+        <script type="text/javascript"
+                src="https://www.statcounter.com/counter/counter.js" async></script>
+        <noscript>
+            <div class="statcounter">
+                <a title="web counter"
+                   href="https://statcounter.com/" target="_blank">
+                    <img class="statcounter"
+                         src="https://c.statcounter.com/12955551/0/9d2536fc/1/" alt="web counter"
+                         referrerPolicy="no-referrer-when-downgrade">
+                </a>
+            </div>
+        </noscript>
+        <!-- End of Statcounter Code -->
+    </body>
+    </html>
+}

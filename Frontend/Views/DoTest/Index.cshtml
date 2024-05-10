@@ -1,0 +1,130 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Participant/ParticipantLayout/ParticipantLayout.cshtml";
+}
+
+<head>
+    <style>
+        /* Gaya tombol nomor soal */
+        .question-button {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #ccc;
+            background-color: #ccc; /* Warna abu-abu */
+            color: #fff; /* Warna teks putih */
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Gaya tombol nomor soal yang sudah dijawab */
+        .answered-button {
+            background-color: #4CAF50; /* Warna hijau */
+        }
+
+        /* Gaya tombol nomor soal yang belum dijawab */
+        .unanswered-button {
+            background-color: #FF0000; /* Warna merah */
+        }
+    </style>
+</head>
+
+<div class="content-wrapper bg-white mx-auto px-5">
+     <div class="shadow-sm border rounded text-right bg-light my-3 p-3">
+        <h3 id="showTimeTest">
+            <i class="fas fa-stopwatch"></i>
+            <span id="timeTest">
+                00h:00m:00s
+            </span>
+        </h3>
+    </div> 
+
+    <div class="card" style="margin-bottom: 0">
+        <div class="card-header bg-primary">
+            <h3 class="card-title" id="cardTitle">
+                Instruksi Pengerjaan
+            </h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+
+            <div id="mainContent">
+                <div id="testIST" class="test-container"  style="display: none">
+                    @await Html.PartialAsync("IST")
+                </div>
+                <div id="testPapiKostick" class="test-container" style="display: none">
+                    @await Html.PartialAsync("PapiKostick")
+                </div>
+                <div id="testMSDT" class="test-container" style="display: none">
+                    @await Html.PartialAsync("MSDT")
+                </div>
+                <div id="testDISC" class="test-container" style="display: none">
+                    @await Html.PartialAsync("DISC")
+                </div>
+                <div id="testRMIB" class="test-container" style="display: none">
+                    @await Html.PartialAsync("RMIB")
+                </div>
+                <!-- Tambahkan div lain untuk tes lainnya -->
+            </div>
+        </div>
+        <!-- /.card-footer -->
+        <div class="card-footer bg-white">
+            <div class="row">
+                <div class="col-sm text-left" id="btnBackTest" style="display: none">
+                    <button type="button" class="btn bg-primary px-5">
+
+                        <i class="fas fa-arrow-left"></i>
+                        Back
+                    </button>
+                </div>
+                <div class="col-sm text-center mx-auto">
+                    <button type="button" class="btn bg-primary px-5" id="startDoTest" style="border-radius: 20px">
+                        Start
+                    </button>
+                </div>
+                <div class="col-sm text-center" id="detail" style="display: none">
+                    <button type="button" class="btn bg-warning px-5" id="btnDetail">
+
+                        <i class="fas fa-arrow-right"></i>
+                        Detail
+                    </button>
+                </div>
+                <div class="col-sm text-right" id="btnNextTest" style="display: none">
+                    <button type="button" class="btn bg-primary px-5" id="btnNext">
+
+                        <i class="fas fa-arrow-right"></i>
+                        Next
+                    </button>
+                </div>
+                <div class="col-sm text-right" id="btnFinishTest" style="display: none">
+                    <button type="button" class="btn bg-success px-5" id="btnFinish">
+                        Finish
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-footer -->
+    </div>
+    <br />
+
+    <div class="question-list">
+        <!-- Tombol nomor soal akan ditambahkan di sini -->
+    </div>
+
+    <!-- Add the following div for the loading animation -->
+    <div id="loading" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <!-- Use a spinner or loading icon here -->
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
+
+
+
+</div>
+
+@section script{
+    <script src="~/js/Participant/DoTest.js"></script>
+
+}

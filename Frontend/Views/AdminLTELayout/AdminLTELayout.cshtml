@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Psikotes PT Berca Hardayaperkasa</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.css">
+
+    <link rel="stylesheet" href="~/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.css">
+
+    <!-- Google Font: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+
+    <!-- select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    @RenderSection("style",required:false)
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="~/AdminLTE-3.2.0/dist/img/logo_loading.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/dashboard" class="nav-link">Home</a>
+                </li>
+            </ul>
+
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Notifications Dropdown Menu -->
+               @*  <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge" id="notif"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="max-width:400px !important;">
+                        <span class="dropdown-item dropdown-header" id="countNotif"></span>
+                        <a href="/Participant" class="dropdown-item">
+                            <i class="fas fa-exclamation-circle"></i> <span id="message"></span>
+                        </a>
+                    </div>
+                </li> *@
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        <img src="~/image/profile.webp" alt="User Image" style="width: auto; height: 25px;" class="img-size-50 img-circle">
+
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" id="logoutClick">Sign Out</a>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <img src="~/AdminLTE-3.2.0/dist/img/logo-berca.webp" alt="AdminLTE Logo" class="brand-image " style="background-blend-mode:color-burn;opacity: 0.8;">
+                <span class="brand-text font-weight-light" style="font-size: 16px;">PT Berca Hardayaperkasa</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image text-center" style="padding: 10px;">
+                        <img src="~/image/profile.webp" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block" id="NameNav">ddd</a>
+                        <a href="#" class="d-block" id="RoleNav">Role</a>
+                    </div>
+                </div>
+
+                
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item menu-open">
+
+                        <li class="nav-header">Home</li>
+                        <li class="nav-item ">
+                            <a href="/dashboard" class="nav-link active" id="dashboardNav">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-header" id="manageUserLabel">User and Role</li>
+                        <li class="nav-item">
+                            <a href="/accounts" class="nav-link" id="manageUserNav">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Manage User and Role
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header" id="manageJobPositionLabel">Job Position</li>
+                        <li class="nav-item">
+                            <a href="/jobposition" class="nav-link" id="managejobpositionNav">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>
+                                    Manage Job Position
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">Administration Psychotest</li>
+                        <li class="nav-item">
+                            <a href="/testcategory" class="nav-link" id="testCategoryNav">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    Test Category
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/participant" class="nav-link" id="participantNav">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Participant
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-header">History</li>
+                        <li class="nav-item">
+                            <a href="/historylog" class="nav-link" id="historyLogNav">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    History Log
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2023 PT. Berca Hardayaperkasa</strong>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/AdminLTE-3.2.0/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="~/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/AdminLTE-3.2.0/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/AdminLTE-3.2.0/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="~/AdminLTE-3.2.0/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/AdminLTE-3.2.0/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/AdminLTE-3.2.0/plugins/moment/moment.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/AdminLTE-3.2.0/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/AdminLTE-3.2.0/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- SweetAllert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="~/AdminLTE-3.2.0/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/jszip/jszip.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.2.0/dist/js/adminlte.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs/plugin/customParseFormat.min.js"></script>
+    <!-- library Moment.js untuk memformat tanggal dan waktu di JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="~/AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.js"></script>
+
+
+    <!--select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+    <script>
+        var ApiUrl = '@ViewBag.ApiUrl';
+        $(function () {
+            //check time limit session
+
+            checkTimeSession();
+            if (sessionStorage.getItem("token") !== null || sessionStorage.getItem("token") !== 0) {
+                BacktoLoginPage();
+            }
+            
+
+            // Summernote
+            $('#summernote').summernote();
+
+            
+            let url = window.location;
+            // for single sidebar menu
+            $('.nav-link').removeClass('active');
+
+            const indexOfQuestionMark = url.href.indexOf('?');
+            const indexOfQuestionMarkSharp = url.href.indexOf('#');
+            if (indexOfQuestionMark !== -1) {
+                url = (url.href.substring(0, indexOfQuestionMark)).toLowerCase();
+            }
+            if (indexOfQuestionMarkSharp !== -1){
+                url = (url.href.substring(0, indexOfQuestionMarkSharp)).toLowerCase();
+            }
+            $('ul.nav-sidebar a').filter(function () {
+                return this.href == url;
+            }).addClass('active');
+
+        })
+    </script>
+
+    <script src="~/js/Admin/ActivityHistoryLog.js"></script>
+    <script src="~/js/WriteDataToken.js"></script>
+    <script src="~/js/Admin/ViewByRole.js"></script>
+    <script src="~/js/logout.js"></script>
+    <script src="~/js/Admin/notif.js"></script>
+    <script src="~/js/TimeLimitSession.js"></script>
+
+    <!-- Page specific script -->
+    @RenderSection("script",required:false)
+
+    <!-- Default Statcounter code for Psikotest Online Berca
+    https://psikotesonline.berca.co.id/ -->
+    <script type="text/javascript">
+    var sc_project=12955551; 
+    var sc_invisible=1; 
+    var sc_security="9d2536fc"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript><div class="statcounter"><a title="web counter"
+    href="https://statcounter.com/" target="_blank"><img class="statcounter"
+    src="https://c.statcounter.com/12955551/0/9d2536fc/1/" alt="web counter"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+</body>
+</html>

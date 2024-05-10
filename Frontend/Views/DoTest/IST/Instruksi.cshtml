@@ -1,0 +1,227 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+         .radio-inputs {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 0.5rem;
+            background-color: #eee;
+            box-sizing: border-box;
+            box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+            padding: 0.25rem;
+            width: 100%;
+            font-size: 14px;
+            margin-bottom: 2rem;
+        }
+
+          .radio-inputs .radio {
+                flex: 1 1 auto;
+                text-align: center;
+            }
+
+                 .radio-inputs .radio input {
+                    display: none;
+                }
+
+                 .radio-inputs .radio .name {
+                    display: flex;
+                    cursor: pointer;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 0.5rem;
+                    border: none;
+                    padding: 0.5rem 0;
+                    color: rgba(51, 65, 85, 1);
+                    transition: all 0.15s ease-in-out;
+                }
+
+                 .radio-inputs .radio input:checked + .name {
+                    background-color: #ffffff;
+                    font-weight: 600;
+                }
+
+                 .radio-inputs .radio input:disabled + .name,
+                 .radio-inputs .radio input:disabled + .name::before {
+                    font-family: "Font Awesome 5 Free"; /* Nama font Font Awesome */
+                    content: "\f023"; /* Kode Unicode untuk ikon yang diinginkan */
+                    margin-right: 5px;
+                }
+
+         label {
+            margin-bottom: initial;
+        }
+
+         .radio-inputs .radio .finish {
+            background-color: #617a55;
+            color: #ffffff;
+        }
+
+         .radio-inputs .radio input:disabled + .finish::before {
+            font-family: "Font Awesome 5 Free"; /* Nama font Font Awesome */
+            content: "\f00c"; /* Kode Unicode untuk ikon yang diinginkan */
+            margin-right: 5px;
+            cursor: no-drop;
+        }
+
+        #instruksiIST-general{
+            margin:50px;
+        }
+
+            #instruksiIST-general .but-start-ist, #instruksiIST-general .but-end-ist {
+                width: 100%;
+                text-align:center;
+            }
+
+                #instruksiIST-general .but-start-ist button, #instruksiIST-general .but-end-ist button {
+                    width: 200px;
+                    height: 40px;
+                    display: block;
+                    margin: 0 auto;
+                    border-radius: 10px;
+                    font-size: 1.2rem;
+                    text-transform: capitalize;
+                    background-color: #36b9cc;
+                    color: #ffffff;
+                    border: none;
+                }
+
+            #instruksiIST-general .note-end {
+                width: 100%;
+            }
+
+                #instruksiIST-general .note-end p {
+                    display: none;
+                    margin: 0 auto;
+                    text-align: center;
+                    padding: 10px;
+                    font-weight: bold;
+                }
+
+            #instruksiIST-general .but-end-ist button{
+                display:none;
+            }
+
+        #subTest{
+            display:inline;
+        }
+                </style>
+
+}
+<!-- Instruksi IST General -->
+<div id="instruksiIST-general" class="text-justify">
+    <!-- Display instructions and examples here -->
+    <h4>
+        Sebelum mengerjakan tes IST, anda perlu memperhatikan hal-hal
+        berikut ini :
+    </h4>
+    <ul class="bullet-list">
+        <li>Tes IST terdiri dari beberapa Subtes.</li>
+        <li>
+            Baca dengan seksama instruksi disetiap Subtes, dan jawablah dengan
+            benar contoh yang diberikan pada setiap Subtes. Setiap Subtes
+            memiliki waktu berbeda. Jika waktu telah habis, sistem otomatis
+            akan melanjutkan pada tes selanjutnya.
+        </li>
+        <li>
+            Usahakan menjawab secepat mungkin dan cek kembali jawaban anda
+            sebelum lanjut ke Subtes selanjutnya.
+        </li>
+        <li>
+            Pengerjaan akan di lakukan secara berurutan dari Subtes 1, Subtes
+            2, hingga Subtes 9.
+        </li>
+    </ul>
+    <div class="radio-inputs">
+        <label class="radio">
+            <input type="radio" name="radio" value="1" disabled />
+            <span class="name" id="s1">Subtes 1</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="radio" value="2" disabled />
+            <span class="name" id="s2">Subtes 2</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="radio" value="3" disabled />
+            <span class="name" id="s3">Subtes 3</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="radio" value="4" disabled />
+            <span class="name" id="s4">Subtes 4</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="radio" value="5" disabled />
+            <span class="name" id="s5">Subtes 5</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="radio" value="6" disabled />
+            <span class="name" id="s6">Subtes 6</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="radio" value="7" disabled />
+            <span class="name" id="s7">Subtes 7</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="radio" value="8" disabled />
+            <span class="name" id="s8">Subtes 8</span>
+        </label>
+        <label class="radio">
+            <input type="radio" name="radio" value="9" disabled />
+            <span class="name" id="s9">Subtes 9</span>
+        </label>
+    </div>
+    <div class="note-end">
+        <p id="note">Anda Telah Selesai Mengerjakan Test IST, Kembali ke Beranda Test</p>
+    </div>
+    <div class="but-start-ist">
+        <button id="instruction">Mulai Subtes <p id="subTest"></p></button>
+    </div>
+    <div class="but-end-ist">
+        <button id="endSubtest">Kembali</button>
+    </div>
+</div>
+
+@section script{
+    <script>
+        $(document).ready(function () {
+            var subTestActive = sessionStorage.getItem("indexSubtest");
+            if (!subTestActive) {
+                console.error("NOOOOO");
+                return;
+            }
+            $("#instruction").show();
+            $("#endSubtest").hide();
+            $("#note").hide();
+
+            if (subTestActive > 9) {
+                $("#instruction").hide();
+                $("#endSubtest").show();
+                $("#note").show();
+            }
+
+            $("input[name='radio']").filter('[value=' + subTestActive + ']').prop('checked', true).prop('disabled', false);
+
+            for (let i = 1; i < subTestActive;i++){
+                $("input[name='radio']").filter('[value=' + i + ']').prop('checked', false);
+                $("input[name='radio']").filter('[value=' + i + ']').prop('disabled', true);
+                $("#s" + i + "").addClass("finish");
+            }
+
+            var num = $("input[name='radio']:checked").val();
+
+            $("#subTest").text(num);
+            $("input[name='radio']").change(function () {
+                var num = $("input[name='radio']:checked").val();
+                $("#subTest").text(num);
+            });
+
+
+            
+            
+        });
+    </script>
+    <script src="~/js/Participant/IST.js"></script>
+}

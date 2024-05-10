@@ -1,0 +1,205 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLTELayout/AdminLTELayout.cshtml";
+}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Manage User & Role</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Manage User & Role</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <h3 class="card-title text-muted text-justify">Manage account & role  who’s can use this app</h3>
+                            <!-- Button trigger modal -->
+                            <button id="createUserBtn" type="button" class="btn btn-success btn-sm justify-content-end" data-toggle="modal" onclick="ClearScreen()">
+                                + Create User
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">User & Role</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal();">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="Id" placeholder="Id Department" hidden>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Name" class="form-label">Full Name *</label>
+                                                <input type="text" class="form-control" placeholder="Nama Admin.." id="Name" pattern="\d{1,50}" required>
+                                                <div class="valid-feedback">
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Nama tidak boleh kosong!
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Email" class="form-label">Email *</label>
+                                                <input type="email" class="form-control" id="Email" placeholder="Email.." pattern="\d{1,50}" required>
+                                                <div class="valid-feedback">
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Format email tidak valid atau telah digunakan.
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Password" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="Password" placeholder="Password.." pattern="\d{1,30}" required>
+                                                <div class="valid-feedback">
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Password harus valid (minimal 6 karakter).
+                                                </div>
+                                            </div>
+                                            <div class="icheck-primary">
+                                                <input type="checkbox" id="ShowPassword">
+                                                <label for="ShowPassword">
+                                                    Show Password
+                                                </label>
+                                            </div>
+                                            <!-- /.col -->
+                                            <div class="card card-default">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="card-body table-responsive pad">
+                                                            <label>
+                                                                Access Rights (Role) :
+                                                            </label>
+                                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                                <label class="btn bg-olive active">
+                                                                    <input type="radio" name="options" id="option_admin" autocomplete="off" checked=""> Admin
+                                                                </label>
+                                                                <label class="btn bg-olive">
+                                                                    <input type="radio" name="options" id="option_audit" autocomplete="off"> Audit
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6">
+                                                        <div class="form-group">
+                                                            <p class="mt-3 mb-1">A user with specific role  is an access funcionality this app, Admin can manage a participant fitur. Audit only can view this app.</p>
+                                                        </div>
+                                                        <!-- /.form-group -->
+                                                    </div>
+                                                    <!-- /.col -->
+                                                </div>
+                                                <!-- /.row -->
+                                            </div>
+
+                                            <div class="card-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="SaveBtn" onclick="Save();">Submit</button>
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal" id="UpdateBtn" onclick="Update();">Edit</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="closeModal();">Close</button>
+
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- / .Modal -->
+                        <!-- Tabel -->
+                        <div class="table-responsive">
+                            <table id="TblAccount" class="table table-bordered table-striped display nowrap" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Access Rigths (Role)</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!-- Tabel -->
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+    
+<!-- Animasi loading -->
+<div id="loading" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999; display: none; position: fixed; top: 0; left: 0;">
+    <div id="loading-content" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw" style="color: white;"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+</section>
+
+
+<!-- /.content -->
+@section script{
+    <script src="~/js/Admin/AccountJS.js"></script>
+    <script>
+        //maksimum input pada kolom
+        $(document).ready(function () {
+            $('#Name').on('input', function () {
+                var maxNikLength = 50; // Panjang maksimum input
+
+                if ($(this).val().length > maxNikLength) {
+                    $(this).val($(this).val().slice(0, maxNikLength)); // Memotong input jika lebih panjang
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('#Email').on('input', function () {
+                var maxNikLength = 50; // Panjang maksimum input
+
+                if ($(this).val().length > maxNikLength) {
+                    $(this).val($(this).val().slice(0, maxNikLength)); // Memotong input jika lebih panjang
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('#Password').on('input', function () {
+                var maxNikLength = 30; // Panjang maksimum input
+
+                if ($(this).val().length > maxNikLength) {
+                    $(this).val($(this).val().slice(0, maxNikLength)); // Memotong input jika lebih panjang
+                }
+            });
+        });
+    </script>
+}

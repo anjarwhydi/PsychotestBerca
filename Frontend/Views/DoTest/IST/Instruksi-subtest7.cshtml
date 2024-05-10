@@ -1,0 +1,343 @@
+﻿@{
+    ViewData["Title"] = "Instruksi Subtes 7";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+        .but-start-ist {
+            width: 100%;
+        }
+
+            .but-start-ist button {
+                padding: 5px 50px;
+                text-align: center;
+                border-radius: 30px;
+                width: fit-content;
+                margin: 0 auto;
+            }
+
+        .row input[type="radio"] {
+            width: 15px;
+            height: 15px;
+        }
+
+        .img-fluid{
+            height: 150px;
+            width: 150px;
+            min-height:min-content;
+           
+        }
+
+        .img{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-check-input {
+            cursor: pointer;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+        }
+
+        .cards{
+            box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.1);
+            margin:20px;
+        }
+
+    </style>
+}
+
+        <!-- Instruksi Subtes 8 IST -->
+        <div id="instruksi-subtes3" class="instruksi">
+            <div class="card" style="margin-bottom: 0">
+                <div class="card-header bg-dark">
+
+
+                    <!-- Display instructions and examples here -->
+                    <h5 class="card-title" id="cardTitle"> SUBTES 7 </h5>
+                </div>
+        <div class="card-body card-instruksi text-justify">
+                    <!-- Display instructions and examples here -->
+                    <h5><strong>Instruksi Pengerjaan:</strong></h5>
+
+                    <h6>
+                        Pada persoalan berikut, Anda akan disajikan suatu bentuk tertentu yang terpotong-potong. Jika potongan tersebut disatukan, maka akan menjadi bentuk utuh seperti bentuk A, B, C, D atau E.
+                        Carilah bentuk-bentuk itu dan pilihlah jawaban yang menunjukan bentuk tersebut.
+                    </h6>
+
+                    <h5><strong>Contoh Soal:</strong></h5>
+                    <div class="card">
+                        <div class="row">
+                            <img src="~/image/gambarcontohsoal/subtes7ist.png" alt="Deskripsi gambar" class="img-thumbnail">
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="row justify-content-center">
+                            <div class="cards col-md-5">
+                                <div class="row justify-content-center mt-3">
+                                    <h5> Contoh 01</h5>
+                                </div>
+                                <br />
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 img">
+                                        <img src="~/image/gambarcontohsoal/subtes7ist_contoh01.png" alt="Deskripsi gambar" class="img-fluid">
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row justify-content-center text-bold">
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh01" id="contoh01A" value="A">
+                                        <label class="form-check-label" for="contoh01A">A</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh01" id="contoh01B" value="B">
+                                        <label class="form-check-label" for="contoh01B">B</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh01" id="contoh01C" value="C">
+                                        <label class="form-check-label" for="contoh01C">C</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh01" id="contoh01D" value="D">
+                                        <label class="form-check-label" for="contoh01D">D</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh01" id="contoh01E" value="E">
+                                        <label class="form-check-label" for="contoh01E">E</label>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <p id="warningMessage1" style="color: red;display:none">Pilih A</p>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="cards col-md-5">
+                                <div class="row justify-content-center mt-3">
+                                    <h5> Contoh 02</h5>
+                                </div>
+                                <br />
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 img">
+                                        <img src="~/image/gambarcontohsoal/subtes7ist_contoh02.png" alt="Deskripsi gambar" class="img-fluid">
+                                    </div> 
+                                </div>
+                                <br />
+                                <div class="row justify-content-center text-bold">
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh02" id="contoh02A" value="A">
+                                        <label class="form-check-label" for="contoh02A">A</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh02" id="contoh02B" value="B">
+                                        <label class="form-check-label" for="contoh02B">B</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh02" id="contoh02C" value="C">
+                                        <label class="form-check-label" for="contoh02C">C</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh02" id="contoh02D" value="D">
+                                        <label class="form-check-label" for="contoh02D">D</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh02" id="contoh02E" value="E">
+                                        <label class="form-check-label" for="contoh02E">E</label>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <p id="warningMessage2" style="color: red;display:none">Pilih E</p>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="cards col-md-5">
+                                <div class="row justify-content-center mt-3">
+                                    <h5> Contoh 03</h5>
+                                </div>
+                                <br />
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 img">
+                                        <img src="~/image/gambarcontohsoal/subtes7ist_contoh03.png" alt="Deskripsi gambar" class="img-fluid">
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row justify-content-center text-bold">
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh03" id="contoh03A" value="A">
+                                        <label class="form-check-label" for="contoh03A">A</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh03" id="contoh03B" value="B">
+                                        <label class="form-check-label" for="contoh03B">B</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh03" id="contoh03C" value="C">
+                                        <label class="form-check-label" for="contoh03C">C</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh03" id="contoh03D" value="D">
+                                        <label class="form-check-label" for="contoh03D">D</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh03" id="contoh03E" value="E">
+                                        <label class="form-check-label" for="contoh03E">E</label>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <p id="warningMessage3" style="color: red;display:none">Pilih B</p>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="cards col-md-5">
+                                <div class="row justify-content-center mt-3">
+                                    <h5> Contoh 04</h5>
+                                </div>
+                                <br />
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 img">
+                                        <img src="~/image/gambarcontohsoal/subtes7ist_contoh04.png" alt="Deskripsi gambar" class="img-fluid">
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row justify-content-center text-bold">
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh04" id="contoh04A" value="A">
+                                        <label class="form-check-label" for="contoh04A">A</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh04" id="contoh04B" value="B">
+                                        <label class="form-check-label" for="contoh04B">B</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh04" id="contoh04C" value="C">
+                                        <label class="form-check-label" for="contoh04C">C</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh04" id="contoh04D" value="D">
+                                        <label class="form-check-label" for="contoh04D">D</label>
+                                    </div>
+                                    <div class="form-check form-check-inline p-2">
+                                        <input class="form-check-input" type="radio" name="contoh04" id="contoh04E" value="E">
+                                        <label class="form-check-label" for="contoh04E">E</label>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <p id="warningMessage4" style="color: red;display:none">Pilih D</p>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background-color: #E7FCEF;">
+                        <div class="row" style="margin-left: 25px; margin-right: 25px; margin-top: 15px; margin-bottom: 0;">
+                            <p>
+                                Pada Contoh <strong>nomor 01</strong>. Di atas, Jika gambar disusun (digabungkan), maka akan menghasilkan bentuk <strong>A</strong>. Maka, Jawaban contoh <strong>nomor 01</strong> adalah <strong>A</strong>.
+                            </p>
+                            <br />
+                            <p>
+                                Pada Contoh <strong>nomor 02</strong>. Di atas, Jika gambar disusun (digabungkan), maka akan menghasilkan bentuk <strong>E</strong>. Maka, Jawaban contoh <strong>nomor 02</strong> adalah <strong>E</strong>.
+                            </p>
+                            <br />
+                            <p>
+                                Pada Contoh <strong>nomor 03</strong>. Di atas, Jika gambar disusun (digabungkan), maka akan menghasilkan bentuk <strong>B</strong>. Maka, Jawaban contoh <strong>nomor 03</strong> adalah <strong>B</strong>.
+                            </p>
+                            <br />
+                            <p>
+                                Pada Contoh <strong>nomor 04</strong>. Di atas, Jika gambar disusun (digabungkan), maka akan menghasilkan bentuk <strong>D</strong>. Maka, Jawaban contoh <strong>nomor 04</strong> adalah <strong>D</strong>.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+            <div>
+                <h5 style="text-align: center; color: #777;"><strong> Jika telah memahami cara menjawab, silahkan lanjut ke soal Subtes 7</strong> </h5>
+            </div>
+            <div class="but-start-ist">
+                <button id="startSubtest" class="btn btn-block btn-info btn-sm">Mulai Tes</button>
+            </div>
+                </div>
+            </div>
+
+        </div>
+
+@section script {
+    <script src="~/js/Participant/IST.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("input[name='contoh01']").change(function () {
+                var num = $("input[name='contoh01']:checked").val();
+
+                if (num.toLowerCase() === "a") {
+                    $("#warningMessage1").hide();
+                }else{
+                    $("#warningMessage1").show();
+                }
+            });
+            $("input[name='contoh02']").change(function () {
+                var num = $("input[name='contoh02']:checked").val();
+
+                if (num.toLowerCase() === "e") {
+                    $("#warningMessage2").hide();
+                } else {
+                    $("#warningMessage2").show();
+                }
+            });
+            $("input[name='contoh03']").change(function () {
+                var num = $("input[name='contoh03']:checked").val();
+
+                if (num.toLowerCase() === "b") {
+                    $("#warningMessage3").hide();
+                }else{
+                    $("#warningMessage3").show();
+                }
+            });
+            $("input[name='contoh04']").change(function () {
+                var num = $("input[name='contoh04']:checked").val();
+
+                if (num.toLowerCase() === "d") {
+                    $("#warningMessage4").hide();
+                } else {
+                    $("#warningMessage4").show();
+                }
+            });
+
+
+            function checkValue(inputName, expectedValue) {
+                var inputValue = $("input[name='" + inputName + "']:checked").val() || "";
+                return inputValue.toLowerCase() === expectedValue;
+            }
+            $("#startSubtest").click(function () {
+                const isActiveSubtest = sessionStorage.getItem("indexSubtest");
+                var targetUrl = `/dotest/StartTest/ist/subtes${isActiveSubtest}`;
+
+                var inpVal1 = checkValue("contoh01", "a");
+                var inpVal2 = checkValue("contoh02", "e");
+                var inpVal3 = checkValue("contoh03", "b");
+                var inpVal4 = checkValue("contoh04", "d");
+                
+                if (!inpVal1) {
+                    $("#warningMessage1").show();
+                }
+                if (!inpVal2) {
+                    $("#warningMessage2").show();
+                }
+                if (!inpVal3) {
+                    $("#warningMessage3").show();
+                }
+                if (!inpVal4) {
+                    $("#warningMessage4").show();
+                }
+
+                if (inpVal1 && inpVal2 && inpVal3 && inpVal4) {
+                    window.location.href = targetUrl;
+                    displaytest(testId, isActiveSubtest);
+                }
+            });
+        });
+    </script>
+}

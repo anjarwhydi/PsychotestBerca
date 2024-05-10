@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Participant/ParticipantLayout/ParticipantLayout.cshtml";
+}
+
+
+<div class="content-wrapper"
+     style="margin-left: 25px; margin-right: 25px">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 text-right">
+            <br />
+            <span id="dateNow"></span>
+            <br />
+            <span id="greeting"></span>
+        </div>
+       
+    </div>
+
+    <div class="card" style="margin-bottom: 0;">
+        <div class="card-header" style="border-bottom: 5px solid #f1c44d">
+            <h3 class="card-title" style="font-weight:bold;">
+                <i class="fas fa-flag"></i>
+                INSTRUKSI PSIKOTES
+            </h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body"
+             style="text-align: justify; padding: 1.25rem 3rem 1.25rem 3rem">
+            <p>
+                Terima kasih telah mengikuti rangakaian proses seleksi sebagai
+                tahap rekrutmen di PT Berca Hardayaperkasa. Pada tes hari ini,
+                anda akan dihadapkan dengan beberapa soal tes yang ragamnya
+                berbeda- beda. Silakan tes diikuti sesuai dengan menu tes
+                berikut ini.
+            </p>
+            <p style="font-weight: bold">
+                Beberapa hal yang perlu diperhatikan dalam pengerjaan tes ini:
+            </p>
+            <ul class="bullet-list">
+                <li>
+                    Untuk mengikuti tes ini, Anda harus menggunakan browser <b>Chrome atau Firefox.</b>
+                </li>
+                <li>
+                    Sebelum pengerjaan tes, pastikan sudah mengisi Nomor Induk
+                    Kependudukan (NIK).
+                </li>
+                <li>
+                    Pengerjaan tes dapat dilakukan dimana saja, namun pilihlah
+                    tempat dengan jaringan internet stabil, situasi yang tenang
+                    sehingga anda dapat mengerjakan tesnya tanpa gangguan
+                </li>
+                <li>
+                    Harap menggunakan perangkat yang memiliki kamera (akan lebih
+                    baik menggunakan laptop).
+                </li>
+                <li>
+                    Selama pengerjaan tes, harap aktifkan kamera (klik Allow atau
+                    Izinkan) pada notifikasi yang muncul.
+                </li>
+                <li>
+                    Selama tes dilarang membuka atau mengaktifkan fitur lain
+                    seperti kalkulator, office, notepad, menjawab panggilan masuk
+                    dan pesan (chat) di telepon, dan segala aktivitas lain yang
+                    tidak mendukung pengerjaan tesnya. Segala aktivitas yang
+                    dilakukan selama pengerjaan tes akan tercatat oleh sistem.
+                </li>
+                <li>
+                    Setiap tes memiliki instruksi dan cara pengerjaan yang
+                    berbeda-beda. Mohon untuk memerhatikan dan membaca instruksi
+                    pengerjaan setiap tes agar dapat mengerjakan setiap tesnya
+                    sesuai dengan instruksi yang diberikan.
+                </li>
+                <li>
+                    Harap dapat mengerjakan tes sesuai dengan urutan yang
+                    diberikan, dan tidak melewatkan tes untuk lanjut ke tes
+                    berikutnya sebelum tes yang sudah anda buka aksesnya selesai.
+                </li>
+                <li>
+                    Setiap tes memiliki waktu pengerjaannya masing-masing, harap
+                    dapat mengerjakan tes sesuai dengan Batasan waktu yang
+                    diberikan
+                </li>
+                <li>
+                    Dalam tes ini, tidak ada jawaban yang benar dan salah. Silakan
+                    ikuti tesnya dan kerjakan dengan maksimal kemampuan anda.
+                </li>
+                <li>
+                    Apabila sudah siap, silahkan memulai tes dengan klik tombol
+                    tes di bawah ini.
+                </li>
+            </ul>
+
+            <button type="button"
+                    class="btn btn-block btn-info btn-sm"
+                    onclick="page2();"
+                    style="
+                  padding: 10px 50px;
+                  text-align: center;
+                  border-radius: 30px;
+                  width: fit-content;
+                  margin: 0 auto;
+                ">
+                <i class="nav-icon fas fa-edit"></i>
+                Mulai
+            </button>
+        </div>
+
+        <!-- /.card-body -->
+    </div>
+    <br />
+</div>
+
+
+@section script{
+    <script src="~/js/Participant/user.js"></script>
+
+
+}

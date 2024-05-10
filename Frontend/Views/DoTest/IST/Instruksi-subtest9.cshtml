@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "Instruksi Subtes 9";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style {
+    <style>
+        .namaSub {
+            margin: 0 0 0.5rem 0;
+        }
+    </style>
+}
+        <!-- Instruksi Subtes 9 IST -->
+        <div id="instruksi-subtes9" class="instruksi">
+            <div class="card" style="margin-bottom: 0">
+        <div class="card-header bg-dark row namaSub">
+                    <h5 class="col-6 text-left" id="cardTitle">
+                        SUBTES 9
+                    </h5>
+            <h5 id="showTimeTest" class="col-6 text-right">
+                <i class="fas fa-stopwatch"></i>
+                <span id="timeTest">
+                    00s
+                </span>
+            </h5>
+                </div>
+        <div class="card-body card-instruksi mt-1 text-justify" style="table table-borderless table-hover table-sm">
+                   <h5>
+                        <strong>Disediakan waktu 3 (tiga) menit untuk hapalkan kata-kata berikut ini !</strong>
+                   </h5>
+                   <hr />
+                    
+                    <table class="table table-borderless table-hover table-sm">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h5>BUNGA&nbsp;</h5>
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>
+                                    Soka - Larat - Flamboyan - Yasmin - Dahlia
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>PERKAKAS&nbsp;</h5>
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>
+                                    Wajan - Jarum - Kikir - Cangkul - Palu
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>BURUNG &nbsp;</h5>
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>
+                                    Itik - Elang - Walet - Tekukur - Nuri
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>KESENIAN &nbsp;</h5>
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>
+                                    Quintet - Arca - Opera - Gamelan - Ukiran
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>BINATANG  &nbsp;</h5>
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>
+                                    Musang - Rusa - Beruang - Zebra - Harimau
+                                </td>
+                            </tr>
+                        </tbody>
+               
+                    </table>
+                </div>
+            </div>
+        </div>
+
+@section script {
+    <!-- Script eksternal Test -->
+    <script src="~/js/Participant/IST.js"></script>
+    <script>
+        window.onload= function () {
+            waktuIngat();
+        };
+        
+        function waktuIngat() {
+            const isActiveSubtest = sessionStorage.getItem("indexSubtest");
+            var time = sessionStorage.getItem("timeSubtestIngat");
+            if (!time) {
+                time = 180;
+                sessionStorage.setItem("timeSubtestIngat", time);
+            }
+
+            var x = setInterval(function () {
+                time -= 1;
+                sessionStorage.setItem("timeSubtestIngat", time);
+                const seconds = time % 60;
+                const secondsInMinutes = (time - seconds) / 60;
+                const minutes = secondsInMinutes % 60;
+                document.getElementById("timeTest").innerHTML =
+                    minutes + "m:" + seconds + "s";
+                // If the count down is finished, write some text
+                if (time < 0) {
+                    sessionStorage.removeItem("timeSubtestIngat");
+                    clearInterval(x);
+                    $('#timeTest').text("done");
+                    window.location.href = `/dotest/instruction/ist/subtes${parseInt(isActiveSubtest) + 1}`;
+                }
+            }, 1000);
+
+        }
+    </script>
+}

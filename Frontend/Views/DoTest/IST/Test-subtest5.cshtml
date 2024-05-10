@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/DoTest/TestLayout/MoreQuestionLayout.cshtml";
+}
+@section style{
+    <style>
+        .card {
+            padding: 0 20px;
+        }
+
+        .namaSub {
+            margin: 0 -20px 0.5rem -20px;
+        }
+
+        #ujian-form {
+            max-height: 450px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        #subtes-container .card {
+            margin-bottom: 0.5rem;
+        }
+
+        .essay {
+            margin-top: revert;
+        }
+        #ujian-form .but-start-ist {
+            width: 100%;
+            text-align: right;
+            margin: 1rem 0;
+        }
+
+            #ujian-form .but-start-ist button {
+                width: 150px;
+                height: 40px;
+                display: block;
+                margin: 0 auto;
+                border-radius: 10px;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                background-color: #36b9cc;
+                color: #ffffff;
+                border: none;
+            }
+    </style>
+}
+<div class="shadow-sm border rounded  bg-dark p-3 row namaSub">
+    <h5 class="col-6 text-left">
+        <span id="numSubTest">
+            SubTes
+        </span>
+    </h5>
+    <h5 id="showTimeTest" class="col-6 text-right">
+        <i class="fas fa-stopwatch"></i>
+        <span id="timeTest">
+            00h:00m:00s
+        </span>
+    </h5>
+</div>
+<form id="ujian-form" action="" method="post">
+    <div id="subtes-container">
+        <!-- Isi pertanyaan dan pilihan ganda akan diisi melalui JavaScript -->
+    </div>
+
+    <div class="but-start-ist">
+        <button id="nextButton" type="button" style="display: none">Selanjutnya</button>
+    </div>
+    <button id="finishButton" type="submit" style="display: none">Selesai</button>
+</form>
+
+@section script{
+    <!-- Script eksternal Test -->
+    <script src="~/js/Participant/IST.js"></script>
+
+}

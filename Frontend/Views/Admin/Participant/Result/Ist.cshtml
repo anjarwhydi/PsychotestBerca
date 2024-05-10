@@ -1,0 +1,419 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Admin/Participant/Result/Layout/Layout.cshtml";
+}
+@section style{
+
+    <style>
+
+
+
+
+        @@media print {
+            #downloadPage {
+                display: none;
+            }
+
+            .card {
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact !important
+            }
+
+            #outCard {
+                box-shadow: none !important;
+                -webkit-print-color-adjust: exact !important
+            }
+
+            .card-header {
+                background: #f2f2f2 !important;
+                -webkit-print-color-adjust: exact !important
+            }
+
+            .table-striped tbody tr:nth-of-type(odd) {
+                background-color: rgba(0,0,0,.05) !important;
+                -webkit-print-color-adjust: exact !important
+            }
+
+            #secret {
+                background-color: #dc3545 !important;
+                font-size: 12px !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact !important
+            }
+
+            .my-column {
+                background-color: #f2f2f2 !important;
+                -webkit-print-color-adjust: exact !important
+            }
+
+            #resIq {
+                background: #5e6ee6 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact !important
+            }
+
+            footer {
+                position: fixed !important;
+                left: 0 !important;
+                bottom: 0 !important;
+            }
+        }
+    </style>
+    }
+
+<div class="card-body">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card my-column" style="height: 50%; background-color: #f2f2f2;">
+                <div class="card-body text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                    <!-- Menggunakan text-center untuk mengatur teks ke tengah -->
+                    <h2 class="card-title"> HASIL TES INTELEGENSI (IST) </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Untuk DAta personal dan screenshot-->
+
+    <div class="row pb-2">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <table class="table dt-responsive nowrap" style="border-style: none; border-spacing: 0; width: 100%;">
+                                <tr>
+                                    <th class="text-left">Waktu Mengerjakan Test</th>
+                                    <td class="text-right" id="WaktuTest">0</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <table class="table dt-responsive nowrap table-sm table-striped" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <tr>
+                                    <th>Nama</th>
+                                    <td id="Nama">John Doe</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td id="Email">johndoe@example.com</td>
+                                </tr>
+                                <tr>
+                                    <th>NIK</th>
+                                    <td id="NIK">1234567890</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <table class="table dt-responsive nowrap table-sm table-striped" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <tr>
+                                    <th>Usia</th>
+                                    <td id="usia">23 tahun 6 bulan 1 hari</td>
+                                </tr>
+                                <tr>
+                                    <th>Jenis Kelamin</th>
+                                    <td id="gender">Perempuan / Laki-laki</td>
+                                </tr>
+                                <tr>
+                                    <th>Telepon</th>
+                                    <td id="Telp">08123456789</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-header text-center" style="background: #f2f2f2;  margin: 0; height: 30px;  display: flex; align-items: center; justify-content: center;"> Pengambilan Gambar Wajah </div>
+                <div class="card-body" style="max-height: 150px; overflow: auto;display: flex; align-items: center; justify-content: center;">
+                    @*<img src="/image/facecapturing/qwewefwv-1693369859484.jpg" alt="Screenshot" style="height: 75px; border-radius: 5%; text-align: center;">*@
+                    <img id="Screenshot" alt="Screenshot" style="height: 75px; border-radius: 5%; text-align: center;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="display:none;" id="violation">
+        <div class="col-md-12">
+            <div class="card" style="box-shadow:none;">
+                <div class="card-header text-center" style="background: #8B0000; margin: 0; color: white; height: 70px; padding: 5px;  width: 100%;  display: flex; align-items: center; justify-content: center;">
+                    <div class="card-body text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                        <h2 id="headerfinalscore" class="card-title" style="font-size: 18px;"><strong><i class="fas fa-exclamation-triangle"></i> VIOLATION</strong><br /> Peserta terdeteksi membuka tab atau window baru atau aplikasi lain sebanyak <span id="totalviolation"></span> kali saat tes berlangsung.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="invalid">
+    </div>
+    <div class="row" style="display:none;" id="safe">
+        <div class="col-md-12">
+            <div class="card" style="box-shadow:none;">
+                <div class="card-header text-center" style="background: #005B41; margin: 0; color: white; height:70px; padding: 5px;  width: 100%;  display: flex; align-items: center; justify-content: center;">
+                    <div class="card-body text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <h2 id="headerfinalscore" class="card-title" style="font-size: 18px;"><strong> SAFE</strong><br />Peserta mengikuti tes dengan baik dan benar.</h2>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row" style="display:none" id="nikInvalid">
+        <div class="col-md-12">
+            <div class="card" style="box-shadow:none;">
+                <div class="card-header text-center bg-warning" style="margin: 0; color: white; height:70px; padding: 5px;  width: 100%;  display: flex; align-items: center; justify-content: center;">
+                    <div class="card-body text-center" style="display: flex; flex-direction: column; justify-content: center;">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <h2 id="headerfinalscore" class="card-title" style="font-size: 18px;"><strong> INVALID NIK</strong><br />NIK Terdeteksi Tidak Valid.</h2>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row" id="valueIst" style="display:none;">
+
+        <div class="col-md-4">
+            <div class="card no-border" id="imageAdd" style="border:none; box-shadow:none;">
+                <img src="~/image/Result_assets/brain_assets_2.png" alt="IST" style="width: auto; height: 300px;">
+                <br />
+                <img src="~/image/Result_assets/brain_assets.png" alt="IST" style="width: auto; height: 300px;">
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="card" style="box-shadow:none;">
+                <div class="card-body text-center">
+                    <div class="table-responsive">
+                        <!-- Tabel DataTables -->
+
+                        <table id="nilaiiq" align="center" class="table table-striped" style="width: 100%; font-size: 15px; ">
+                            <thead>
+                                <tr class="text-center">
+
+                                    <th style="width:10%;"></th>
+                                    <th style="width:20%">RW</th>
+                                    <th style="width:20%">SW</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>SE</td>
+
+                                    <td id="seRw">-</td>
+                                    <td id="seSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+
+                                    <td>WA</td>
+
+                                    <td id="waRw">-</td>
+                                    <td id="waSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+
+                                    <td>AN</td>
+
+                                    <td id="anRw">-</td>
+                                    <td id="anSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+
+                                    <td>GE</td>
+
+                                    <td id="geRw">-</td>
+                                    <td id="geSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+
+                                    <td>RA</td>
+
+                                    <td id="raRw">-</td>
+                                    <td id="raSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+
+                                    <td>ZR</td>
+
+                                    <td id="zrRw">-</td>
+                                    <td id="zrSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+
+                                    <td>FA</td>
+
+                                    <td id="faRw">-</td>
+                                    <td id="faSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+
+                                    <td>WU</td>
+
+                                    <td id="wuRw">-</td>
+                                    <td id="wuSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+
+                                    <td>ME</td>
+                                    <td id="meRw">-</td>
+                                    <td id="meSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+
+
+                                    <td>JML</td>
+                                    <td id="jmlRw">-</td>
+                                    <td id="jmlSw">
+                                        <div class="overlay bg-transparent" id="forOverlaySW"><i class="fas fa-1x fa-spinner fa-spin"></i></div>
+                                    </td>
+
+                                </tr>
+                                <!-- Tambahkan baris data lainnya sesuai dengan kebutuhan -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card" id="resIq" style="background: #5e6ee6; color: white; height: 50px; padding: 5px;  width: 100%;box-shadow:none; ">
+                        <div class="card-body text-center" style="display: flex; flex-direction: column; justify-content: center; ">
+                            <!-- Menggunakan text-center untuk mengatur teks ke tengah -->
+                            <h2 class="card-title" style="font-size: 18px;" id="iqScore"></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card" @*style="box-shadow:none;"*@>
+                <div class="card-header text-center" style="background: #f2f2f2;  margin: 0;"> INDEKS IQ </div>
+                <div class="card-body">
+                    <table id="indexiq" class="table" style="font-size: 15px;">
+
+                        <tbody>
+                            <tr>
+
+                                <td style="width:50%;">Rentang IQ</td>
+                                <td style="width:50%;">Kategori IQ</td>
+
+                            </tr>
+                            <tr>
+
+
+                                <td style="width:50%;">>130</td>
+                                <td style="width:50%;">Very Superior</td>
+
+
+                            </tr>
+                            <tr>
+
+
+                                <td style="width:50%;">120 - 129</td>
+                                <td style="width:50%;">Superior</td>
+
+
+                            </tr>
+
+                            <tr>
+
+
+                                <td style="width:50%;">110 - 119</td>
+                                <td style="width:50%;">Diatas Rata-rata</td>
+
+
+                            </tr>
+                            <tr>
+
+
+                                <td style="width:50%;"> 90 - 109</td>
+                                <td style="width:50%;">Rata-rata </td>
+
+
+                            </tr>
+                            <tr>
+
+
+                                <td style="width:50%;"> 80 - 89</td>
+                                <td style="width:50%;">Dibawah Rata-rata</td>
+
+
+                            </tr>
+                            <tr>
+
+
+                                <td style="width:50%;">71 - 79</td>
+                                <td style="width:50%;">Borderline</td>
+
+
+                            </tr>
+                            <tr>
+
+
+                                <td style="width:50%;"> < 70 </td>
+                                <td style="width:50%;">Mental Defective</td>
+
+
+                            </tr>
+                            <!-- Tambahkan baris data lainnya sesuai dengan kebutuhan -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" id="forButton">
+        <div class="col-12">
+            <button class="bg-primary" id="downloadPage">download hasil tes</button>
+        </div>
+    </div>
+</div>

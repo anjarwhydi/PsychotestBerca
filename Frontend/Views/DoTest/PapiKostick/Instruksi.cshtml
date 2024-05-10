@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/DoTest/TestLayout/OneQuestionLayout.cshtml";
+}
+
+                <!-- Instruksi PAPI KOSTICK -->
+<div class="text-justify" id="instruksiPapiKostick">
+                    <!-- Display instructions and examples here -->
+                    <h4>Tatacara Pengerjaan PAPI Kostick: </h4>
+                    <p>
+                        Pada tes ini terdapat semilan puluh (90) pasang soal. Pilihlah satu dari setiap pasangan tersebut yang anda anggap paling mencerminkan tentang diri anda.
+                        Bila tidak ada satupun dari pasangan tersebut yang cocok, pilihlah yang saudara anggap paling mendekati dengan diri anda.
+                    </p>
+                    <h4>Contoh Soal</h4>
+    <form>
+        <div class="row boxed-check-group boxed-check-default">
+            <div class="col-12 col-sm-12 col-lg-12">
+                <label class="boxed-check">
+
+                    <input class="boxed-check-input" type="radio" id="optionA" name="answer" value="A">
+                    <div class="boxed-check-label">A. Saya adalah pekerja keras.</div>
+
+                </label>
+            </div>
+        </div>
+        <div class="row boxed-check-group boxed-check-default">
+            <div class="col-12 col-sm-12 col-lg-12">
+                <label class="boxed-check">
+
+                    <input class="boxed-check-input" type="radio" id="optionB" name="answer" value="B">
+                    <div class="boxed-check-label">B. Saya tidak mudah murung.</div>
+
+                </label>
+            </div>
+        </div>
+    </form>
+    <p id="warningMessage1" style="color: red;display:none">Pilih <strong>Salah Satu</strong></p>
+
+    <p>
+                        Manakah dari dua pernyataan tersebut yang paling mencerminkan diri anda?
+                        Jika Anda adalah sosok yang pekerja keras maka pilihlah pernyataan <strong>A.</strong>
+                        Tetapi bila Anda lebih memilih tidak mudah murung, maka pilihlah <strong>B</strong>
+                    </p>
+                    <p>
+                        Ini bukan suatu tes. Tidak ada jawaban “benar” atau “salah”. Apapun yang
+                        Anda pilih hendaknya sungguh-sungguh menggambarkan diri Anda dan pilihlah <u>hanya satu</u> pernyataan dari tiap pasang.
+                    </p>
+                </div>
+
+   
+@section script{
+    <!-- Script eksternal Test -->
+    <script src="~/js/Participant/DoTest.js"></script>
+    <script>
+        var currentTest;
+        if (currentTestId === "4") {
+            currentTest = "ist";
+        } else if (currentTestId === "5") {
+            currentTest = "disc";
+        } else if (currentTestId === "6") {
+            currentTest = "rmib";
+        } else if (currentTestId === "7") {
+            currentTest = "papikostick";
+        } else if (currentTestId === "11") {
+            currentTest = "msdt";
+        }
+        // Periksa apakah tes yang seharusnya diakses sesuai dengan tes pada URL
+        if (currentTestId !== "7") {
+            // Jika tidak sesuai, arahkan kembali ke halaman instruksi atau tampilkan pesan kesalahan
+            window.location.href = `/dotest/instruction/${currentTest}`;
+        }
+    </script>
+}

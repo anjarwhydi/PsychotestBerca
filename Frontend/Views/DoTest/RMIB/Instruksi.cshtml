@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/DoTest/TestLayout/OneQuestionLayout.cshtml";
+}
+
+<!-- Instruksi MSDT -->
+<div id="instruksiRMIB" class="text-justify">
+    <!-- Display instructions and examples here -->
+    <h4>Tatacara Pengerjaan RMIB : </h4>
+    <p>
+        Dibawah ini akan anda temui daftar berbagai macam pekerjaan yang tersusun dalam beberapa kelompok.
+    </p>
+    <p>
+        Setiap kelompok terdiri dari 12 macam pekerjaan. Setiap pekerjaan merupakan keahlian khusus yang memerlukan latihan atau pendidikan keahlian tersendiri
+    </p>
+    <p>
+        Mungkin hanya beberapa diantaranya yang Anda sukai.
+        </p>
+    <p>
+        Disini Anda diminta untuk memilih pekerjaan mana yang ingin Anda lakukan atau pekerjaan mana yang Anda sukai, terlepas dari besarnya upah atau gaji yang akan diterima. Juga terlepas dari apakah Anda akan berhasil atau tidak dalam mengerjakan pekerjaan tersebut
+    </p>
+    <p>
+        Tugas Anda adalah mencantumkan nomor atau angka pada tiap pekerjaan dalam kelompok-kelompok yang tersedia.
+    </p>
+    <p>
+        Berikanlah nomor (angka) 1 untuk pekerjaan yang paling Anda sukai diantara keduabelas pekerjaan yang tersedia pada setiap kelompok, dan dilanjutkan dengan pemberian nomor-nomor 2; 3; dan seterusnya berurutan berdasarkan besarnya kadar kesukaan/minat Anda terhadap pekerjaan itu.
+    </p>
+    <p>
+        Nomor (angka) 12 Anda cantumkan untuk pekerjaan yang paling tidak disukai dari daftar pekerjaan yang tersedia pada kelompok tersebut
+    </p>
+    <p>
+        bekerjalah secepatnya dan tulislah nomor-nomor sesuai dengan kesan dan keinginan Anda yang pertama muncul
+    </p>
+    <p>
+        Selamat bekerja!
+    </p>
+</div>
+
+@section script{
+    <!-- Script eksternal Test -->
+    <script src="~/js/Participant/DoTest.js"></script>
+    <script>
+        var currentTest;
+        if (currentTestId === "4") {
+            currentTest = "ist";
+        } else if (currentTestId === "5") {
+            currentTest = "disc";
+        } else if (currentTestId === "6") {
+            currentTest = "rmib";
+        } else if (currentTestId === "7") {
+            currentTest = "papikostick";
+        } else if (currentTestId === "11") {
+            currentTest = "msdt";
+        }
+        // Periksa apakah tes yang seharusnya diakses sesuai dengan tes pada URL
+        if (currentTestId !== "6") {
+            // Jika tidak sesuai, arahkan kembali ke halaman instruksi atau tampilkan pesan kesalahan
+            window.location.href = `/dotest/instruction/${currentTest}`;
+        }
+    </script>
+}

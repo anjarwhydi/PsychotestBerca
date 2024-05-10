@@ -1,0 +1,187 @@
+﻿@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/AdminLTELayout/AdminLTELayout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Dashboard</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div id="participantCountBox" class="small-box bg-warning">
+                    <div class="inner">
+                        @*<h3>@ViewBag.TotalData</h3>*@
+                        <h3>44</h3>
+
+                        <p>User Registrations</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="/Participant" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div id="completeCountBox" class="small-box bg-success" >
+                    <div class="overlay" id="forOverlayCom"><i class="fas fa-3x fa-sync-alt fa-spin"></i></div>
+                    <div class="inner">
+                        <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                        <p>Status Complete</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="/Participant?status=Complete" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div id="onProgressCountBox"  class="small-box bg-info">
+                    <div class="overlay" id="forOverlayOnP"><i class="fas fa-3x fa-sync-alt fa-spin"></i></div>
+
+                    <div class="inner">
+                        <h3>2<sup style="font-size: 20px">%</sup></h3>
+
+                        <p>Status On Progress</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="/Participant?status=On Progress" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div id="inCompleteCountBox" class="small-box bg-danger">
+                    <div class="overlay" id="forOverlayInc"><i class="fas fa-3x fa-sync-alt fa-spin"></i></div>
+
+                    <div class="inner">
+                        <h3>45<sup style="font-size: 20px">%</sup></h3>
+
+                        <p>Status Incomplete</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="/Participant?status=Incomplete" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+    <!-- Main content -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- AREA CHART -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Status Test Chart</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="chart">
+                            <div class="overlay" id="barOverlay"><i class="fas fa-3x fa-sync-alt fa-spin"></i></div>
+
+                            <canvas id="areaChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </div>
+            
+            <!-- /.col (RIGHT) -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+    
+    <!-- Main content -->
+    <section class="content" style="margin: 0;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Job Position</h3>
+                        </div>
+
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="TB_Participant" class="table table-bordered table-striped display nowrap" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Position</th>
+                                        <th>Total</th>
+                                        <th>Percentage</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+</div>
+
+<div class="scroll-to-top" style="position: fixed; bottom: 20px; right: 20px;z-index: 999;">
+    <button class="btn btn-light btn-lg" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</div>
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
+
+<!-- DataTables -->
+<script src="~/AdminLTE-3.2.0/plugins/datatables/jquery.dataTables.min.js"></script>
+
+
+
+@section script{
+    <script src="~/js/Admin/Chart.js"></script>
+
+}
