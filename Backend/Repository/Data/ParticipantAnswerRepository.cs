@@ -69,7 +69,6 @@ namespace Backend.Repository.Data
             return context.TblParticipantAnswers.Where(e => e.ParticipantId == participantId).Include(e=>e.Participant).Include(e=>e.Participant.Account);
         }
 
-
         public int UpdateAnswer(TblAppliedPosition tblAppliedPosition)
         {
             //mencari JobPosition di database
@@ -209,6 +208,11 @@ namespace Backend.Repository.Data
             }
 
             return createDate;
+        }
+
+        public IEnumerable<TblParticipantAnswer> GetAnswareByParticipantNik(string participantNik)
+        {
+            return context.TblParticipantAnswers.Where(e => e.Participant.Nik == participantNik).Include(e => e.Participant).Include(e => e.Participant.Account);
         }
     }
 }

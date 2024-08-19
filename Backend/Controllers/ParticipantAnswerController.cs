@@ -71,7 +71,7 @@ namespace Backend.Controllers
         }
 
         //zahra 29-08-2023
-    [Authorize(Roles = "Super Admin,Admin")]
+        [Authorize(Roles = "Super Admin,Admin")]
 
         [HttpGet("GetAnswareByParticipantId")]
         public ActionResult GetAnswareByParticipantId(int participantId)
@@ -288,6 +288,20 @@ namespace Backend.Controllers
             else
             {
                 return NotFound();
+            }
+        }
+
+        [HttpGet("GetAnswareByParticipantNik")]
+        public ActionResult GetAnswareByParticipantNik(string participantNik)
+        {
+            var get = participantAnswerRepository.GetAnswareByParticipantNik(participantNik);
+            if (get.Count() > 0)
+            {
+                return StatusCode(200, new { status = HttpStatusCode.OK, message = get.Count() + " Data Ditemukan", Data = get });
+            }
+            else
+            {
+                return StatusCode(404, new { status = HttpStatusCode.NotFound, message = get.Count() + " Data Ditemukan", Data = get });
             }
         }
     }
